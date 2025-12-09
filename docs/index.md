@@ -147,7 +147,7 @@ Qualitatively:
 </video>
 
 ### **Files & Downloads**
-- [Final Report (PDF)](/RAS557_Final_Project_Report.docx)
+- [Final Report (PDF)](assets/RAS557_Final_Project_Report.pdf)
 - [CAD / DXFs](https://github.com/vamshin24/bioinspired_grasshopper_jumping_mechanism/tree/main/docs/assets/dxf)
 - [MuJoCo XML & Control Code and other Jupyter Notebooks](https://github.com/vamshin24/bioinspired_grasshopper_jumping_mechanism/tree/main/docs/notebooks)
 - **Micropython code for running the 2 servos**
