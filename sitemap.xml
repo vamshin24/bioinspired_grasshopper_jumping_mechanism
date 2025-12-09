@@ -36,6 +36,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://embedded-systems-design.github.io/template_report/notebooks/New_assignment-1/New_assignment-1/</loc>
+         <lastmod>2025-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://embedded-systems-design.github.io/template_report/notebooks/grass_body/grass_body/</loc>
+         <lastmod>2025-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://embedded-systems-design.github.io/template_report/notebooks/grass_manu/grass_manu/</loc>
+         <lastmod>2025-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://embedded-systems-design.github.io/template_report/static/node_modules/mathjax/</loc>
          <lastmod>2025-12-09</lastmod>
          <changefreq>daily</changefreq>

@@ -1,0 +1,1137 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+
+<meta name="robots" content="nofollow">
+
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://embedded-systems-design.github.io/template_report/notebooks/grass_manu/grass_manu/">
+      
+      
+        <link rel="prev" href="../../../second-page/">
+      
+      
+        <link rel="next" href="../../grass_body/grass_body/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+            
+
+        
+
+    
+      
+        <title>Hind Legs - Foldable Grasshopper-Inspired Walking Robot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+
+
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Foldable Grasshopper-Inspired Walking Robot" class="md-header__button md-logo" aria-label="Foldable Grasshopper-Inspired Walking Robot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Foldable Grasshopper-Inspired Walking Robot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hind Legs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../second-page/" class="md-tabs__link">
+        
+  
+    
+  
+  Midterm Project Report
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+    
+  
+  Manufacturing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Assignment5_RAS557/Assignment5_RAS557/" class="md-tabs__link">
+          
+  
+    
+  
+  Parameters
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Foldable Grasshopper-Inspired Walking Robot" class="md-nav__button md-logo" aria-label="Foldable Grasshopper-Inspired Walking Robot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    Foldable Grasshopper-Inspired Walking Robot
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../second-page/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Midterm Project Report
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Manufacturing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Manufacturing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Hind Legs
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grass_body/grass_body/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trunk
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../Assignment5_RAS557/Assignment5_RAS557/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Parameters
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Hind Legs</h1>
+
+<p>pip install foldable_robotics</p>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="n">pycairo</span>
+</code></pre></div>
+<pre><code>Requirement already satisfied: pycairo in c:\users\shawn\anaconda3\envs\mujoco\lib\site-packages (1.28.0)
+Note: you may need to restart the kernel to use updated packages.
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">foldable_robotics.dxf</span> <span class="k">as</span> <span class="nn">frd</span>
+<span class="kn">import</span> <span class="nn">foldable_robotics</span> <span class="k">as</span> <span class="nn">fr</span>
+<span class="kn">import</span> <span class="nn">foldable_robotics.manufacturing</span> <span class="k">as</span> <span class="nn">frm</span>
+<span class="kn">from</span> <span class="nn">foldable_robotics.layer</span> <span class="kn">import</span> <span class="n">Layer</span>
+<span class="kn">from</span> <span class="nn">foldable_robotics.laminate</span> <span class="kn">import</span> <span class="n">Laminate</span>
+<span class="kn">import</span> <span class="nn">foldable_robotics.parts.castellated_hinge2</span> <span class="k">as</span> <span class="nn">frc</span>
+<span class="kn">import</span> <span class="nn">shapely.geometry</span> <span class="k">as</span> <span class="nn">sg</span>
+<span class="n">fr</span><span class="o">.</span><span class="n">display_height</span><span class="o">=</span><span class="mi">300</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">fr</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="mi">4</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">desired_degrees</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="n">thickness</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">plain_width</span> <span class="o">=</span> <span class="n">frm</span><span class="o">.</span><span class="n">plain_hinge_width</span><span class="p">(</span><span class="n">desired_degrees</span><span class="p">,</span><span class="n">thickness</span><span class="p">)</span>
+<span class="n">plain_width</span>
+</code></pre></div>
+<pre><code>1.7320508075688774
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">support_width</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># must be larger than hinge width</span>
+<span class="n">kerf</span> <span class="o">=</span> <span class="mf">.05</span>
+<span class="n">is_adhesive</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="kc">False</span><span class="p">]</span>
+<span class="n">arc_approx</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">NUM_LAYERS</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">bridge_thickness</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">bounding_box_padding</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">jig_spacing</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">jig_dia</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">body_vertices</span> <span class="o">=</span> <span class="n">frd</span><span class="o">.</span><span class="n">read_lwpolylines</span><span class="p">(</span><span class="s1">'grass_bar.dxf'</span><span class="p">,</span>
+<span class="n">layer</span><span class="o">=</span><span class="s1">'body'</span><span class="p">,</span>
+<span class="n">arc_approx</span> <span class="o">=</span> <span class="n">arc_approx</span><span class="p">)</span>
+<span class="n">body_vertices</span>
+</code></pre></div>
+<pre><code>[[[1.56136, 70.7607],
+  [173.761, 70.7607],
+  [173.761, 51.1607],
+  [1.56136, 51.1607]]]
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">body_polygons</span> <span class="o">=</span> <span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">body_vertices</span><span class="p">]</span>
+<span class="n">body_polygons</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_6_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_6_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">body_layer</span> <span class="o">=</span> <span class="n">Layer</span><span class="p">(</span><span class="o">*</span><span class="n">body_polygons</span><span class="p">)</span>
+<span class="n">body_layer</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_7_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_7_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">hole_vertices</span> <span class="o">=</span> <span class="n">frd</span><span class="o">.</span><span class="n">read_lwpolylines</span><span class="p">(</span><span class="s1">'grass_bar.dxf'</span><span class="p">,</span>
+<span class="n">layer</span><span class="o">=</span><span class="s1">'holes'</span><span class="p">,</span>
+<span class="n">arc_approx</span> <span class="o">=</span> <span class="n">arc_approx</span><span class="p">)</span>
+<span class="n">hole_layer</span> <span class="o">=</span> <span class="n">Layer</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">hole_vertices</span><span class="p">])</span>
+<span class="n">hole_layer</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_8_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_8_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">body_layer</span> <span class="o">-=</span> <span class="n">hole_layer</span>
+<span class="n">body_layer</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_9_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_9_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">cut_vertices</span> <span class="o">=</span> <span class="n">frd</span><span class="o">.</span><span class="n">read_lwpolylines</span><span class="p">(</span><span class="s1">'grass_bar.dxf'</span><span class="p">,</span>
+<span class="n">layer</span><span class="o">=</span><span class="s1">'cuts'</span><span class="p">,</span>
+<span class="n">arc_approx</span> <span class="o">=</span> <span class="n">arc_approx</span><span class="p">)</span>
+<span class="n">cut_layer</span> <span class="o">=</span> <span class="n">Layer</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">LineString</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">cut_vertices</span><span class="p">])</span>
+<span class="n">cut_layer</span>
+<span class="n">cut_layer</span> <span class="o">&lt;&lt;=</span><span class="mf">.5</span>
+<span class="n">cut_layer</span>
+<span class="n">body_layer</span> <span class="o">-=</span> <span class="n">cut_layer</span>
+<span class="n">body_layer</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_10_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_10_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">joint_vertices</span> <span class="o">=</span> <span class="n">frd</span><span class="o">.</span><span class="n">read_lines</span><span class="p">(</span><span class="s1">'grass_bar.dxf'</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">'joints'</span><span class="p">)</span>
+<span class="n">joint_vertices</span>
+</code></pre></div>
+<pre><code>[[[6.561360419843481, 70.76067563916963],
+  [6.561360419843481, 51.16067563916963]],
+ [[35.76136041984348, 70.76067563916963],
+  [35.76136041984348, 51.16067563916964]],
+ [[52.76136041984348, 70.76067563916963],
+  [52.76136041984348, 51.16067563916963]],
+ [[97.76136041984348, 70.76067563916963],
+  [97.76136041984348, 51.16067563916963]],
+ [[160.7613604198435, 70.76067563916963],
+  [160.7613604198435, 51.16067563916963]]]
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="n">sg</span><span class="o">.</span><span class="n">LineString</span><span class="p">(</span><span class="n">joint_vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">l</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_12_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_12_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">joint_lines_original_layer</span> <span class="o">=</span> <span class="n">Layer</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">LineString</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">joint_vertices</span><span class="p">])</span>
+<span class="n">joint_lines_original_layer</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_13_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_13_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">body_layer</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">joint_lines_original_layer</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_14_0.png" data-desc-position="bottom"><img alt="png" src="../output_14_0.png"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">joint_lines_modified_layer</span> <span class="o">=</span> <span class="n">joint_lines_original_layer</span> <span class="o">&amp;</span> <span class="n">body_layer</span>
+<span class="n">body_layer</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">joint_lines_modified_layer</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_15_0.png" data-desc-position="bottom"><img alt="png" src="../output_15_0.png"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">modified_joint_vertices</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">joint_lines_modified_layer</span><span class="o">.</span><span class="n">geoms</span><span class="p">]</span>
+<span class="n">modified_joint_vertices</span>
+</code></pre></div>
+<pre><code>[[(6.561360419843481, 70.76067563916963), (6.561360419843481, 51.1607)],
+ [(35.76136041984348, 70.76067563916963), (35.76136041984348, 51.1607)],
+ [(52.76136041984348, 70.76067563916963), (52.76136041984348, 51.1607)],
+ [(97.76136041984348, 70.76067563916963), (97.76136041984348, 51.1607)],
+ [(160.7613604198435, 70.76067563916963), (160.7613604198435, 51.1607)]]
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">simple_joint_layer</span> <span class="o">=</span> <span class="n">joint_lines_modified_layer</span> <span class="o">&lt;&lt;</span> <span class="n">plain_width</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">simple_joint_layer</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_17_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_17_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">hole</span><span class="p">,</span><span class="n">dummy</span> <span class="o">=</span> <span class="n">frm</span><span class="o">.</span><span class="n">calc_hole</span><span class="p">(</span><span class="n">modified_joint_vertices</span><span class="p">,</span><span class="n">plain_width</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fr</span><span class="o">.</span><span class="n">my_line_width</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">holes</span> <span class="o">=</span> <span class="n">hole</span><span class="o">.</span><span class="n">to_laminate</span><span class="p">(</span><span class="n">NUM_LAYERS</span><span class="p">)</span>
+<span class="n">holes</span><span class="o">&lt;&lt;=</span><span class="mf">.5</span> <span class="c1"># add a little extra material to ensure we removed enough.</span>
+<span class="n">holes</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_18_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_18_0.svg"></a></p>
+<pre><code>&lt;Figure size 640x480 with 0 Axes&gt;
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">rigid_layer</span> <span class="o">=</span> <span class="p">(</span><span class="n">body_layer</span> <span class="o">-</span> <span class="n">simple_joint_layer</span><span class="p">)</span>
+<span class="n">rigid_layer</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_19_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_19_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">adhesive_layer</span> <span class="o">=</span> <span class="n">rigid_layer</span> <span class="o">&amp;</span> <span class="n">body_layer</span>
+<span class="n">adhesive_layer</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_20_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_20_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">ideal_final_device</span> <span class="o">=</span> <span class="n">Laminate</span><span class="p">(</span><span class="n">rigid_layer</span><span class="p">,</span><span class="n">adhesive_layer</span><span class="p">,</span> <span class="n">body_layer</span><span class="p">,</span>
+<span class="n">adhesive_layer</span><span class="p">,</span><span class="n">rigid_layer</span><span class="p">)</span>
+<span class="n">ideal_final_device</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_21_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_21_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">ideal_final_device</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_22_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_22_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">ideal_final_device</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_23_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_23_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">bridges</span> <span class="o">=</span> <span class="n">frd</span><span class="o">.</span><span class="n">read_lines</span><span class="p">(</span><span class="s1">'grass_bar.dxf'</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">'bridge'</span><span class="p">)</span>
+<span class="n">bridges</span>
+<span class="n">bridges_layer</span> <span class="o">=</span> <span class="n">Layer</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">sg</span><span class="o">.</span><span class="n">LineString</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">bridges</span><span class="p">])</span>
+<span class="n">bridges_layer</span> <span class="o">&lt;&lt;=</span> <span class="n">bridge_thickness</span>
+<span class="n">bridges_layer</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_24_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_24_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">bridges_lam</span> <span class="o">=</span> <span class="n">Laminate</span><span class="p">(</span><span class="n">bridges_layer</span><span class="p">,</span><span class="n">bridges_layer</span><span class="p">,</span><span class="n">Layer</span><span class="p">(),</span><span class="n">bridges_layer</span><span class="p">,</span><span class="n">bridges_layer</span><span class="p">)</span>
+<span class="n">bridges_lam</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_25_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_25_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">supported_actual_device</span> <span class="o">=</span> <span class="n">ideal_final_device</span> <span class="o">|</span> <span class="n">bridges_lam</span>
+<span class="n">supported_actual_device</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_26_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_26_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">diff</span> <span class="o">=</span> <span class="n">supported_actual_device</span> <span class="o">-</span> <span class="n">ideal_final_device</span>
+<span class="n">removal</span> <span class="o">=</span> <span class="n">frm</span><span class="o">.</span><span class="n">cleanup</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="mf">.1</span><span class="p">)</span>
+<span class="n">removal</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_27_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_27_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">removal</span> <span class="o">=</span> <span class="n">frm</span><span class="o">.</span><span class="n">keepout_laser</span><span class="p">(</span><span class="n">removal</span><span class="p">)</span>
+<span class="n">removal</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_28_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_28_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">actual_final_device</span> <span class="o">=</span> <span class="n">ideal_final_device</span><span class="o">-</span> <span class="n">holes</span> <span class="o">-</span> <span class="n">removal</span>
+<span class="n">actual_final_device</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_29_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_29_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">keepout</span> <span class="o">=</span> <span class="n">frm</span><span class="o">.</span><span class="n">keepout_laser</span><span class="p">(</span><span class="n">actual_final_device</span><span class="p">)</span>
+<span class="n">keepout</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_30_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_30_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">layer_id</span> <span class="o">=</span> <span class="n">frm</span><span class="o">.</span><span class="n">build_layer_numbers</span><span class="p">(</span><span class="n">NUM_LAYERS</span><span class="p">,</span>
+<span class="n">text_size</span><span class="o">=</span><span class="n">jig_dia</span><span class="p">)</span>
+<span class="n">layer_id</span> <span class="o">=</span> <span class="n">layer_id</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="mf">.2</span><span class="p">)</span>
+<span class="n">layer_id</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_31_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_31_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">),(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span> <span class="o">=</span> <span class="n">actual_final_device</span><span class="o">.</span><span class="n">bounding_box_coords</span><span class="p">()</span>
+<span class="n">w1</span><span class="p">,</span><span class="n">h1</span> <span class="o">=</span> <span class="n">actual_final_device</span><span class="o">.</span><span class="n">get_dimensions</span><span class="p">()</span>
+<span class="n">w2</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">w1</span><span class="o">/</span><span class="n">jig_spacing</span><span class="p">)</span><span class="o">*</span><span class="n">jig_spacing</span><span class="o">+</span><span class="n">jig_spacing</span><span class="o">+</span><span class="n">support_width</span>
+<span class="n">h2</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">h1</span><span class="o">/</span><span class="n">jig_spacing</span><span class="p">)</span><span class="o">*</span><span class="n">jig_spacing</span><span class="o">+</span><span class="n">jig_spacing</span><span class="o">+</span><span class="n">support_width</span>
+<span class="n">x1</span> <span class="o">-=</span> <span class="p">(</span><span class="n">w2</span><span class="o">-</span><span class="n">w1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">y1</span> <span class="o">-=</span> <span class="p">(</span><span class="n">h2</span><span class="o">-</span><span class="n">h1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">x2</span> <span class="o">+=</span> <span class="p">(</span><span class="n">w2</span><span class="o">-</span><span class="n">w1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">y2</span> <span class="o">+=</span> <span class="p">(</span><span class="n">h2</span><span class="o">-</span><span class="n">h1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">))</span>
+<span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y1</span><span class="p">))</span>
+<span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y2</span><span class="p">))</span>
+<span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">))</span>
+<span class="n">alignment_holes_layer</span> <span class="o">=</span> <span class="n">Layer</span><span class="p">(</span><span class="o">*</span><span class="n">points</span><span class="p">)</span>
+<span class="n">alignment_holes_layer</span><span class="o">&lt;&lt;=</span><span class="p">(</span><span class="n">jig_dia</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">alignment_holes</span><span class="o">=</span><span class="n">alignment_holes_layer</span><span class="o">.</span><span class="n">to_laminate</span><span class="p">(</span><span class="n">NUM_LAYERS</span><span class="p">)</span>
+<span class="n">alignment_holes</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_32_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_32_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">sheet_layer</span> <span class="o">=</span> <span class="p">(</span><span class="n">alignment_holes_layer</span><span class="o">&lt;&lt;</span><span class="n">bounding_box_padding</span><span class="p">)</span><span class="o">.</span><span class="n">bounding_box</span><span class="p">()</span>
+<span class="n">sheet</span><span class="o">=</span><span class="n">sheet_layer</span><span class="o">.</span><span class="n">to_laminate</span><span class="p">(</span><span class="n">NUM_LAYERS</span><span class="p">)</span>
+<span class="n">sheet</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_33_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_33_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">removable_scrap</span> <span class="o">=</span> <span class="n">frm</span><span class="o">.</span><span class="n">calculate_removable_scrap</span><span class="p">(</span>
+<span class="n">actual_final_device</span><span class="p">,</span><span class="n">sheet</span><span class="p">,</span><span class="n">support_width</span><span class="p">,</span><span class="n">is_adhesive</span><span class="p">)</span>
+<span class="n">web</span> <span class="o">=</span> <span class="n">removable_scrap</span><span class="o">-</span><span class="n">alignment_holes</span><span class="o">-</span><span class="n">layer_id</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">jig_dia</span><span class="p">,</span><span class="n">y1</span><span class="o">-</span><span class="n">jig_dia</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">web</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_34_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_34_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">web</span><span class="o">|</span><span class="n">actual_final_device</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_35_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_35_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">second_pass_scrap</span> <span class="o">=</span> <span class="n">sheet</span><span class="o">-</span><span class="n">keepout</span>
+<span class="n">second_pass_scrap</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_36_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_36_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">first_pass_scrap</span> <span class="o">=</span> <span class="n">sheet</span> <span class="o">-</span> <span class="n">second_pass_scrap</span> <span class="o">-</span> <span class="n">actual_final_device</span>
+<span class="n">first_pass_scrap</span> <span class="o">=</span> <span class="n">frm</span><span class="o">.</span><span class="n">cleanup</span><span class="p">(</span><span class="n">first_pass_scrap</span><span class="p">,</span><span class="mf">.00001</span><span class="p">)</span>
+<span class="n">first_pass_scrap</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_37_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_37_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">support</span> <span class="o">=</span> <span class="n">frm</span><span class="o">.</span><span class="n">support</span><span class="p">(</span><span class="n">actual_final_device</span><span class="p">,</span>
+<span class="n">frm</span><span class="o">.</span><span class="n">keepout_laser</span><span class="p">,</span><span class="n">support_width</span><span class="p">,</span><span class="n">support_width</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">support</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_38_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_38_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">support</span> <span class="o">|</span> <span class="n">bridges_lam</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_39_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_39_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">supported_design</span> <span class="o">=</span> <span class="n">web</span><span class="o">|</span><span class="n">actual_final_device</span><span class="o">|</span><span class="n">support</span><span class="o">|</span> <span class="n">bridges_lam</span>
+<span class="n">supported_design</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_40_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_40_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">cut_material</span> <span class="o">=</span> <span class="p">(</span><span class="n">keepout</span><span class="o">&lt;&lt;</span><span class="n">kerf</span><span class="p">)</span><span class="o">-</span><span class="n">keepout</span>
+<span class="n">cut_material</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_41_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_41_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">remaining_material</span> <span class="o">=</span> <span class="n">supported_design</span><span class="o">-</span><span class="n">cut_material</span>
+<span class="n">remaining_material</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_42_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_42_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">remaining_parts</span> <span class="o">=</span> <span class="n">frm</span><span class="o">.</span><span class="n">find_connected</span><span class="p">(</span><span class="n">remaining_material</span><span class="p">,</span><span class="n">is_adhesive</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">remaining_parts</span><span class="p">:</span>
+    <span class="n">item</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">new</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_43_0.png" data-desc-position="bottom"><img alt="png" src="../output_43_0.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_43_1.png" data-desc-position="bottom"><img alt="png" src="../output_43_1.png"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">test_part</span><span class="o">=</span><span class="n">actual_final_device</span><span class="o">&gt;&gt;</span><span class="mi">1</span>
+<span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">remaining_parts</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">result</span><span class="o">&amp;</span><span class="n">test_part</span><span class="p">)</span><span class="o">.</span><span class="n">is_null</span><span class="p">():</span>
+        <span class="k">break</span>
+<span class="n">result</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_44_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_44_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">check</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span><span class="o">^</span><span class="n">actual_final_device</span><span class="p">)</span>
+<span class="n">check</span><span class="o">&gt;&gt;=</span><span class="mf">1e-1</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">check</span><span class="o">.</span><span class="n">is_null</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">w</span><span class="p">,</span><span class="n">h</span> <span class="o">=</span> <span class="n">supported_design</span><span class="o">.</span><span class="n">get_dimensions</span><span class="p">()</span>
+<span class="n">p0</span><span class="p">,</span><span class="n">p1</span> <span class="o">=</span> <span class="n">supported_design</span><span class="o">.</span><span class="n">bounding_box_coords</span><span class="p">()</span>
+<span class="n">rigid_layer</span> <span class="o">=</span> <span class="n">supported_design</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">|</span> <span class="p">(</span><span class="n">supported_design</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">w</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">rigid_layer</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_46_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_46_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">l4</span> <span class="o">=</span> <span class="n">supported_design</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">p2</span><span class="p">,</span><span class="n">p3</span> <span class="o">=</span> <span class="n">l4</span><span class="o">.</span><span class="n">bounding_box_coords</span><span class="p">()</span>
+<span class="n">l4</span> <span class="o">=</span> <span class="n">l4</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">p0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">p2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">w</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span><span class="n">p0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">p2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">adhesive_layer</span> <span class="o">=</span> <span class="n">supported_design</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">|</span> <span class="n">l4</span>
+<span class="n">adhesive_layer</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_47_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_47_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">first_pass</span> <span class="o">=</span> <span class="n">Laminate</span><span class="p">(</span><span class="n">rigid_layer</span><span class="p">,</span><span class="n">adhesive_layer</span><span class="p">,</span><span class="n">supported_design</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">first_pass</span><span class="o">.</span><span class="n">export_dxf</span><span class="p">(</span><span class="s1">'first_pass'</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">final_cut</span> <span class="o">=</span> <span class="n">sheet</span> <span class="o">-</span> <span class="n">keepout</span>
+<span class="n">final_cut</span> <span class="o">=</span> <span class="n">final_cut</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">final_cut</span><span class="o">.</span><span class="n">export_dxf</span><span class="p">(</span><span class="s1">'final_cut'</span><span class="p">)</span>
+<span class="n">final_cut</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_49_0.svg" data-desc-position="bottom"><img alt="svg" src="../output_49_0.svg"></a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">foldable_robotics.pdf</span> <span class="kn">import</span> <span class="n">Page</span>
+<span class="kn">import</span> <span class="nn">foldable_robotics.pdf</span> <span class="k">as</span> <span class="nn">frp</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># === 2-row grid with mirrored pairs + final_cut in top-right ===</span>
+<span class="c1"># Configure which laminate layers to use</span>
+<span class="n">TOP_IDX</span> <span class="o">=</span> <span class="mi">4</span>        <span class="c1"># &lt;- pick the "different" layer number for the NEW TOP row</span>
+<span class="n">BOTTOM_IDX</span> <span class="o">=</span> <span class="mi">3</span>     <span class="c1"># &lt;- your current layer number for the BOTTOM row</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">frp</span><span class="o">.</span><span class="n">ppi</span> <span class="o">/</span> <span class="mf">25.4</span>     <span class="c1"># mm -&gt; PDF points</span>
+<span class="n">PAD</span> <span class="o">=</span> <span class="mi">30</span>               <span class="c1"># page margins (pt)</span>
+<span class="n">GAP_X</span><span class="p">,</span> <span class="n">GAP_Y</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span>  <span class="c1"># spacing between cells (pt)</span>
+<span class="n">CELL_PAD</span> <span class="o">=</span> <span class="mi">12</span>          <span class="c1"># inner padding in each cell (pt)</span>
+
+<span class="k">def</span> <span class="nf">as_layer</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="c1"># Accept a Layer or Laminate; return a Layer (first layer if Laminate) </span>
+    <span class="k">return</span> <span class="n">obj</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s2">"get_paths"</span><span class="p">)</span> <span class="k">else</span> <span class="n">obj</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">layer</span><span class="p">):</span>
+    <span class="c1"># Scale to points and move bottom-left to (0,0)</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">),</span> <span class="n">_</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">bounding_box_coords</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">L</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="n">x0</span><span class="p">,</span> <span class="o">-</span><span class="n">y0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">mirror_h</span><span class="p">(</span><span class="n">layer</span><span class="p">):</span>
+    <span class="c1"># Mirror horizontally about the layer's own center</span>
+    <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">bounding_box_coords</span><span class="p">()</span>
+    <span class="n">cx</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">layer</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="n">cx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">cx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="n">layer</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">bounding_box_coords</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">scale_to_fit</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="n">CELL_PAD</span><span class="p">):</span>
+    <span class="n">lw</span><span class="p">,</span> <span class="n">lh</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">lw</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">lh</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">layer</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="nb">min</span><span class="p">((</span><span class="n">w</span> <span class="o">-</span> <span class="n">pad</span><span class="p">)</span><span class="o">/</span><span class="n">lw</span><span class="p">,</span> <span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="n">pad</span><span class="p">)</span><span class="o">/</span><span class="n">lh</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">layer</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+    <span class="c1"># Draw a Layer or Laminate</span>
+    <span class="n">layers</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s2">"layers"</span><span class="p">,</span> <span class="p">[</span><span class="n">obj</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">lyr</span> <span class="ow">in</span> <span class="n">layers</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">lyr</span><span class="o">.</span><span class="n">get_paths</span><span class="p">():</span>
+            <span class="n">page</span><span class="o">.</span><span class="n">draw_poly</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># --- build the six cells (2 rows × 3 cols) ---</span>
+<span class="c1"># top row: [ left_pair(original @ TOP_IDX), mirrored(TOP_IDX), final_cut ]</span>
+<span class="c1"># bottom row: [ left_pair(original @ BOTTOM_IDX), mirrored(BOTTOM_IDX), (empty) ]</span>
+
+<span class="n">top_left</span>  <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">as_layer</span><span class="p">(</span><span class="n">supported_design</span><span class="p">[</span><span class="n">TOP_IDX</span><span class="p">]))</span>
+<span class="n">top_right</span> <span class="o">=</span> <span class="n">mirror_h</span><span class="p">(</span><span class="n">top_left</span><span class="p">)</span>
+
+<span class="n">bot_left</span>  <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">as_layer</span><span class="p">(</span><span class="n">supported_design</span><span class="p">[</span><span class="n">BOTTOM_IDX</span><span class="p">]))</span>
+<span class="n">bot_right</span> <span class="o">=</span> <span class="n">mirror_h</span><span class="p">(</span><span class="n">bot_left</span><span class="p">)</span>
+
+<span class="n">final_layer</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">as_layer</span><span class="p">(</span><span class="n">final_cut</span><span class="p">))</span>   <span class="c1"># final_cut already a Layer in your notebook</span>
+
+<span class="c1"># Estimate a reasonable cell size from the largest item</span>
+<span class="n">max_w</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">L</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="p">[</span><span class="n">top_left</span><span class="p">,</span> <span class="n">top_right</span><span class="p">,</span> <span class="n">bot_left</span><span class="p">,</span> <span class="n">bot_right</span><span class="p">,</span> <span class="n">final_layer</span><span class="p">])</span>
+<span class="n">max_h</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">L</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="p">[</span><span class="n">top_left</span><span class="p">,</span> <span class="n">top_right</span><span class="p">,</span> <span class="n">bot_left</span><span class="p">,</span> <span class="n">bot_right</span><span class="p">,</span> <span class="n">final_layer</span><span class="p">])</span>
+<span class="n">CELL_W</span> <span class="o">=</span> <span class="n">max_w</span> <span class="o">+</span> <span class="mi">80</span>
+<span class="n">CELL_H</span> <span class="o">=</span> <span class="n">max_h</span> <span class="o">+</span> <span class="mi">80</span>
+
+<span class="c1"># Page size (2 rows × 3 cols)</span>
+<span class="n">page_w</span> <span class="o">=</span> <span class="n">PAD</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">CELL_W</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">GAP_X</span> <span class="o">+</span> <span class="n">PAD</span>
+<span class="n">page_h</span> <span class="o">=</span> <span class="n">PAD</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">CELL_H</span> <span class="o">+</span> <span class="n">GAP_Y</span> <span class="o">+</span> <span class="n">PAD</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Page</span><span class="p">(</span><span class="s1">'grass_plus_final.pdf'</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">page_h</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">place</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
+    <span class="c1"># fit to cell and center within that cell</span>
+    <span class="n">Lf</span> <span class="o">=</span> <span class="n">scale_to_fit</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">CELL_W</span><span class="p">,</span> <span class="n">CELL_H</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">Lf</span><span class="o">.</span><span class="n">bounding_box_coords</span><span class="p">()</span>
+    <span class="n">lw</span><span class="p">,</span> <span class="n">lh</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">Lf</span><span class="p">)</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">PAD</span> <span class="o">+</span> <span class="n">col</span><span class="o">*</span><span class="p">(</span><span class="n">CELL_W</span> <span class="o">+</span> <span class="n">GAP_X</span><span class="p">)</span>
+    <span class="n">y0</span> <span class="o">=</span> <span class="n">page_h</span> <span class="o">-</span> <span class="n">PAD</span> <span class="o">-</span> <span class="p">(</span><span class="n">row</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">CELL_H</span> <span class="o">-</span> <span class="n">row</span><span class="o">*</span><span class="n">GAP_Y</span>  <span class="c1"># rows from top</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="p">(</span><span class="n">CELL_W</span> <span class="o">-</span> <span class="n">lw</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">+</span> <span class="p">(</span><span class="n">CELL_H</span> <span class="o">-</span> <span class="n">lh</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">draw</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">Lf</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">))</span>
+
+<span class="c1"># Top row (row 0)</span>
+<span class="n">place</span><span class="p">(</span><span class="n">top_left</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">place</span><span class="p">(</span><span class="n">top_right</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">place</span><span class="p">(</span><span class="n">final_layer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Bottom row (row 1)</span>
+<span class="n">place</span><span class="p">(</span><span class="n">bot_left</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">place</span><span class="p">(</span><span class="n">bot_right</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># leave (row 1, col 2) empty, or duplicate final_layer there if you like:</span>
+<span class="c1"># place(final_layer, 1, 2)</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"✅ Exported: grass_two_rows_plus_final.pdf"</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>✅ Exported: grass_two_rows_plus_final.pdf
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># === 2-row grid with mirrored pairs + final_cut in top-right ===</span>
+<span class="c1"># Configure which laminate layers to use</span>
+<span class="n">TOP_IDX</span> <span class="o">=</span> <span class="mi">4</span>        <span class="c1"># &lt;- pick the "different" layer number for the NEW TOP row</span>
+<span class="n">BOTTOM_IDX</span> <span class="o">=</span> <span class="mi">3</span>     <span class="c1"># &lt;- your current layer number for the BOTTOM row</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="n">frp</span><span class="o">.</span><span class="n">ppi</span> <span class="o">/</span> <span class="mf">25.4</span>     <span class="c1"># mm -&gt; PDF points</span>
+<span class="n">PAD</span> <span class="o">=</span> <span class="mi">30</span>               <span class="c1"># page margins (pt)</span>
+<span class="n">GAP_X</span><span class="p">,</span> <span class="n">GAP_Y</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span>  <span class="c1"># spacing between cells (pt)</span>
+<span class="n">CELL_PAD</span> <span class="o">=</span> <span class="mi">12</span>          <span class="c1"># inner padding in each cell (pt)</span>
+
+<span class="k">def</span> <span class="nf">as_layer</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="c1"># Accept a Layer or Laminate; return a Layer (first layer if Laminate)</span>
+    <span class="k">return</span> <span class="n">obj</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s2">"get_paths"</span><span class="p">)</span> <span class="k">else</span> <span class="n">obj</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">layer</span><span class="p">):</span>
+    <span class="c1"># Scale to points and move bottom-left to (0,0)</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">),</span> <span class="n">_</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">bounding_box_coords</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">L</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="n">x0</span><span class="p">,</span> <span class="o">-</span><span class="n">y0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">mirror_h</span><span class="p">(</span><span class="n">layer</span><span class="p">):</span>
+    <span class="c1"># Mirror horizontally about the layer's own center</span>
+    <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">bounding_box_coords</span><span class="p">()</span>
+    <span class="n">cx</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">layer</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="n">cx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">cx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="n">layer</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">bounding_box_coords</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">scale_to_fit</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="n">CELL_PAD</span><span class="p">):</span>
+    <span class="n">lw</span><span class="p">,</span> <span class="n">lh</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">lw</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">lh</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">layer</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="nb">min</span><span class="p">((</span><span class="n">w</span> <span class="o">-</span> <span class="n">pad</span><span class="p">)</span><span class="o">/</span><span class="n">lw</span><span class="p">,</span> <span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="n">pad</span><span class="p">)</span><span class="o">/</span><span class="n">lh</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">layer</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+    <span class="c1"># Draw a Layer or Laminate</span>
+    <span class="n">layers</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s2">"layers"</span><span class="p">,</span> <span class="p">[</span><span class="n">obj</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">lyr</span> <span class="ow">in</span> <span class="n">layers</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">lyr</span><span class="o">.</span><span class="n">get_paths</span><span class="p">():</span>
+            <span class="n">page</span><span class="o">.</span><span class="n">draw_poly</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># --- build the six cells for ONE LEG (2 rows × 3 cols) ---</span>
+<span class="c1"># top row: [ left_pair(original @ TOP_IDX), mirrored(TOP_IDX), final_cut ]</span>
+<span class="c1"># bottom row: [ left_pair(original @ BOTTOM_IDX), mirrored(BOTTOM_IDX), (empty) ]</span>
+
+<span class="n">top_left</span>  <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">as_layer</span><span class="p">(</span><span class="n">supported_design</span><span class="p">[</span><span class="n">TOP_IDX</span><span class="p">]))</span>
+<span class="n">top_right</span> <span class="o">=</span> <span class="n">mirror_h</span><span class="p">(</span><span class="n">top_left</span><span class="p">)</span>
+
+<span class="n">bot_left</span>  <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">as_layer</span><span class="p">(</span><span class="n">supported_design</span><span class="p">[</span><span class="n">BOTTOM_IDX</span><span class="p">]))</span>
+<span class="n">bot_right</span> <span class="o">=</span> <span class="n">mirror_h</span><span class="p">(</span><span class="n">bot_left</span><span class="p">)</span>
+
+<span class="n">final_layer</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">as_layer</span><span class="p">(</span><span class="n">final_cut</span><span class="p">))</span>   <span class="c1"># final_cut already a Layer in your notebook</span>
+
+<span class="c1"># Estimate a reasonable cell size from the largest item</span>
+<span class="n">max_w</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">L</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="p">[</span><span class="n">top_left</span><span class="p">,</span> <span class="n">top_right</span><span class="p">,</span> <span class="n">bot_left</span><span class="p">,</span> <span class="n">bot_right</span><span class="p">,</span> <span class="n">final_layer</span><span class="p">])</span>
+<span class="n">max_h</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">L</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="p">[</span><span class="n">top_left</span><span class="p">,</span> <span class="n">top_right</span><span class="p">,</span> <span class="n">bot_left</span><span class="p">,</span> <span class="n">bot_right</span><span class="p">,</span> <span class="n">final_layer</span><span class="p">])</span>
+<span class="n">CELL_W</span> <span class="o">=</span> <span class="n">max_w</span> <span class="o">+</span> <span class="mi">80</span>
+<span class="n">CELL_H</span> <span class="o">=</span> <span class="n">max_h</span> <span class="o">+</span> <span class="mi">80</span>
+
+<span class="c1"># We now want TWO of these 2-row layouts stacked = 4 rows total</span>
+<span class="n">NUM_ROWS_PER_LEG</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">NUM_LEGS</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">TOTAL_ROWS</span> <span class="o">=</span> <span class="n">NUM_ROWS_PER_LEG</span> <span class="o">*</span> <span class="n">NUM_LEGS</span>  <span class="c1"># 4 rows</span>
+
+<span class="c1"># Page size (4 rows × 3 cols = two legs on one page)</span>
+<span class="n">page_w</span> <span class="o">=</span> <span class="n">PAD</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">CELL_W</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">GAP_X</span> <span class="o">+</span> <span class="n">PAD</span>
+<span class="n">page_h</span> <span class="o">=</span> <span class="n">PAD</span> <span class="o">+</span> <span class="n">TOTAL_ROWS</span><span class="o">*</span><span class="n">CELL_H</span> <span class="o">+</span> <span class="p">(</span><span class="n">TOTAL_ROWS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">GAP_Y</span> <span class="o">+</span> <span class="n">PAD</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Page</span><span class="p">(</span><span class="s1">'grass_two_legs_plus_final.pdf'</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">page_h</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">place</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
+    <span class="c1"># fit to cell and center within that cell</span>
+    <span class="n">Lf</span> <span class="o">=</span> <span class="n">scale_to_fit</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">CELL_W</span><span class="p">,</span> <span class="n">CELL_H</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">Lf</span><span class="o">.</span><span class="n">bounding_box_coords</span><span class="p">()</span>
+    <span class="n">lw</span><span class="p">,</span> <span class="n">lh</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">Lf</span><span class="p">)</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">PAD</span> <span class="o">+</span> <span class="n">col</span><span class="o">*</span><span class="p">(</span><span class="n">CELL_W</span> <span class="o">+</span> <span class="n">GAP_X</span><span class="p">)</span>
+    <span class="c1"># rows counted from top</span>
+    <span class="n">y0</span> <span class="o">=</span> <span class="n">page_h</span> <span class="o">-</span> <span class="n">PAD</span> <span class="o">-</span> <span class="p">(</span><span class="n">row</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">CELL_H</span> <span class="o">-</span> <span class="n">row</span><span class="o">*</span><span class="n">GAP_Y</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="p">(</span><span class="n">CELL_W</span> <span class="o">-</span> <span class="n">lw</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">+</span> <span class="p">(</span><span class="n">CELL_H</span> <span class="o">-</span> <span class="n">lh</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">draw</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">Lf</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">))</span>
+
+<span class="c1"># Helper to place one leg’s 2×3 grid starting at a given row index</span>
+<span class="k">def</span> <span class="nf">place_leg</span><span class="p">(</span><span class="n">base_row</span><span class="p">):</span>
+    <span class="c1"># Top row for this leg</span>
+    <span class="n">place</span><span class="p">(</span><span class="n">top_left</span><span class="p">,</span>   <span class="n">base_row</span> <span class="o">+</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">place</span><span class="p">(</span><span class="n">top_right</span><span class="p">,</span>  <span class="n">base_row</span> <span class="o">+</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">place</span><span class="p">(</span><span class="n">final_layer</span><span class="p">,</span> <span class="n">base_row</span> <span class="o">+</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Bottom row for this leg</span>
+    <span class="n">place</span><span class="p">(</span><span class="n">bot_left</span><span class="p">,</span>   <span class="n">base_row</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">place</span><span class="p">(</span><span class="n">bot_right</span><span class="p">,</span>  <span class="n">base_row</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># leave (base_row+1, col 2) empty, or duplicate final_layer if you like:</span>
+    <span class="c1"># place(final_layer, base_row + 1, 2)</span>
+
+<span class="c1"># Leg 1 (rows 0–1)</span>
+<span class="n">place_leg</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Leg 2 (rows 2–3), exact same layout duplicated lower on the page</span>
+<span class="n">place_leg</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"✅ Exported: grass_two_legs_plus_final.pdf"</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>✅ Exported: grass_two_legs_plus_final.pdf
+</code></pre>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../../../second-page/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Midterm Project Report">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Midterm Project Report
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../grass_body/grass_body/" class="md-footer__link md-footer__link--next" aria-label="Next: Trunk">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Trunk
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 Foldable Grasshopper Team
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="/2023_fall" target="_blank" rel="noopener" title="2023 Site" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow", "navigation.top", "navigation.path", "navigation.indexes", "navigation.prune", "content.action.edit", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

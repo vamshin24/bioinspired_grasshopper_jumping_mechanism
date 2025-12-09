@@ -1,0 +1,1284 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+
+<meta name="robots" content="nofollow">
+
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://embedded-systems-design.github.io/template_report/notebooks/New_assignment-1/New_assignment-1/">
+      
+      
+        <link rel="prev" href="../../../assets/beam1_FINAL.pdf">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+            
+
+        
+
+    
+      
+        <title>Friction - Foldable Grasshopper-Inspired Walking Robot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+
+
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#part-1-data-loading-and-preprocessingexplanation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Foldable Grasshopper-Inspired Walking Robot" class="md-header__button md-logo" aria-label="Foldable Grasshopper-Inspired Walking Robot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Foldable Grasshopper-Inspired Walking Robot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Friction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../second-page/" class="md-tabs__link">
+        
+  
+    
+  
+  Midterm Project Report
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../grass_manu/grass_manu/" class="md-tabs__link">
+          
+  
+    
+  
+  Manufacturing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../Assignment5_RAS557/Assignment5_RAS557/" class="md-tabs__link">
+          
+  
+    
+  
+  Parameters
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Foldable Grasshopper-Inspired Walking Robot" class="md-nav__button md-logo" aria-label="Foldable Grasshopper-Inspired Walking Robot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    Foldable Grasshopper-Inspired Walking Robot
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../second-page/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Midterm Project Report
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../grass_manu/grass_manu/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Manufacturing
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Parameters
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Parameters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Assignment5_RAS557/Assignment5_RAS557/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../assets/beam1_FINAL.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Material
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Friction
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Friction
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-data-loading-and-preprocessingexplanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: Data Loading and PreprocessingExplanation:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-parameter-identification-using-curve-fitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: Parameter Identification Using Curve Fitting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-3-mujoco-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code 3: MuJoCo Validation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#friction-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Friction Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Friction Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-1-read-and-plot-friction-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code 1: Read and Plot Friction Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-2-calculate-acceleration-from-friction-data-simplified" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code 2: Calculate Acceleration from Friction Data (Simplified)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-3-mujoco-friction-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code 3: MuJoCo Friction Simulation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-data-loading-and-preprocessingexplanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: Data Loading and PreprocessingExplanation:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-parameter-identification-using-curve-fitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: Parameter Identification Using Curve Fitting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-3-mujoco-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code 3: MuJoCo Validation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#friction-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Friction Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Friction Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-1-read-and-plot-friction-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code 1: Read and Plot Friction Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-2-calculate-acceleration-from-friction-data-simplified" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code 2: Calculate Acceleration from Friction Data (Simplified)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-3-mujoco-friction-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code 3: MuJoCo Friction Simulation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h3 id="part-1-data-loading-and-preprocessingexplanation">Part 1: Data Loading and PreprocessingExplanation:</h3>
+<p>This code reads the raw spring experiment data from a csv file, removes the header row, and normalizes the time values to start from t=0. Then it plot the data for analysis</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Read the spring data</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">position</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'spring_output.csv'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># Skip header</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+            <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">position</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+
+<span class="c1"># Plot the data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="s1">'bo-'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (s)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Position (m)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Spring Oscillation - Experimental Data'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'spring_data_plot.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Data points: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Time range: </span><span class="si">{</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Position range: </span><span class="si">{</span><span class="n">position</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">position</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> meters"</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_1_0.png" data-desc-position="bottom"><img alt="png" src="../output_1_0.png"></a></p>
+<pre><code>Data points: 100
+Time range: 0.000 to 3.960 seconds
+Position range: -0.022160 to 0.025690 meters
+</code></pre>
+<h2 id="part-2-parameter-identification-using-curve-fitting">Part 2: Parameter Identification Using Curve Fitting</h2>
+<p>This code figures out the spring constant k_spring and damping coefficient c_damping from your experimental data. When a spring oscillates, it bounces back and forth but the motion gradually gets smaller because of damping. The code fits a mathematical curve to your data that matches this behavior. The curve has two main numbers that control its shape: zeta which controls how fast the oscillations die out, and omega_n which controls how fast the spring bounces. Once we find the best values for zeta and omega_n that match your data, we use simple formulas to calculate k_spring and c_damping. The k_spring tells you how stiff the spring is, and c_damping tells you how much resistance slows it down. The R_squared value tells you how well the fitted curve matches your actual data. A value close to 1 means the fit is very good.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">find_peaks</span>
+
+<span class="c1"># System mass</span>
+<span class="n">MASS</span> <span class="o">=</span> <span class="mf">0.257</span>  <span class="c1"># kg</span>
+
+<span class="c1"># Damped oscillator model: x(t) = A * e^(-ζωₙt) * cos(ωₐt + φ) + offset</span>
+<span class="k">def</span> <span class="nf">damped_oscillation</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">zeta</span><span class="p">,</span> <span class="n">omega_n</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+    <span class="n">omega_d</span> <span class="o">=</span> <span class="n">omega_n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">zeta</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">zeta</span> <span class="o">*</span> <span class="n">omega_n</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega_d</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">phi</span><span class="p">)</span> <span class="o">+</span> <span class="n">offset</span>
+
+<span class="c1"># Make initial guesses for curve fitting</span>
+<span class="n">A_guess</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">position</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+<span class="n">offset_guess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+<span class="n">peaks</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">peaks</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">period</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">peaks</span><span class="p">]))</span>
+    <span class="n">omega_n_guess</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">period</span> <span class="o">*</span> <span class="mf">1.1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">omega_n_guess</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Fit the damped oscillation model to data</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span>
+    <span class="n">damped_oscillation</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> 
+    <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="n">A_guess</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">omega_n_guess</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">offset_guess</span><span class="p">],</span>
+    <span class="n">bounds</span><span class="o">=</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]),</span>
+    <span class="n">maxfev</span><span class="o">=</span><span class="mi">10000</span>
+<span class="p">)</span>
+
+<span class="n">A_fit</span><span class="p">,</span> <span class="n">zeta_fit</span><span class="p">,</span> <span class="n">omega_n_fit</span><span class="p">,</span> <span class="n">phi_fit</span><span class="p">,</span> <span class="n">offset_fit</span> <span class="o">=</span> <span class="n">popt</span>
+<span class="n">perr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">pcov</span><span class="p">))</span>
+
+<span class="c1"># Calculate physical parameters</span>
+<span class="n">k_spring</span> <span class="o">=</span> <span class="n">MASS</span> <span class="o">*</span> <span class="p">(</span><span class="n">omega_n_fit</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">c_damping</span> <span class="o">=</span> <span class="n">MASS</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">zeta_fit</span> <span class="o">*</span> <span class="n">omega_n_fit</span>
+
+<span class="c1"># Calculate fit quality (R²)</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="n">position</span> <span class="o">-</span> <span class="n">damped_oscillation</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">)</span>
+<span class="n">r_squared</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">position</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">position</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Print results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"SPRING PARAMETER FITTING"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Spring Constant (k):     </span><span class="si">{</span><span class="n">k_spring</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> N/m"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Damping Coefficient (c): </span><span class="si">{</span><span class="n">c_damping</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> N·s/m"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Damping Ratio (ζ):       </span><span class="si">{</span><span class="n">zeta_fit</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Natural Frequency (ωₙ):  </span><span class="si">{</span><span class="n">omega_n_fit</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> rad/s"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"R² (fit quality):        </span><span class="si">{</span><span class="n">r_squared</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">t_fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">x_fit</span> <span class="o">=</span> <span class="n">damped_oscillation</span><span class="p">(</span><span class="n">t_fit</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="s1">'bo'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Experimental Data'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_fit</span><span class="p">,</span> <span class="n">x_fit</span><span class="p">,</span> <span class="s1">'r-'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Fitted Model'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (s)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Position (m)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Spring Damping Analysis'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">textstr</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'k = </span><span class="si">{</span><span class="n">k_spring</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> N/m</span><span class="se">\n</span><span class="s1">c = </span><span class="si">{</span><span class="n">c_damping</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> N·s/m</span><span class="se">\n</span><span class="s1">R² = </span><span class="si">{</span><span class="n">r_squared</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="n">textstr</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">'top'</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">'round'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">'wheat'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'spring_analysis.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<pre><code>============================================================
+SPRING PARAMETER FITTING
+============================================================
+Spring Constant (k):     38.52 N/m
+Damping Coefficient (c): 0.4762 N·s/m
+Damping Ratio (ζ):       0.0757
+Natural Frequency (ωₙ):  12.24 rad/s
+R² (fit quality):        0.9641
+============================================================
+</code></pre>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_3_1.png" data-desc-position="bottom"><img alt="png" src="../output_3_1.png"></a></p>
+<h2 id="code-3-mujoco-validation">Code 3: MuJoCo Validation</h2>
+<p>This code checks whether the k_spring and c_damping values we found in Part 2 are actually correct. It does this by creating a virtual spring in MuJoCo, which is a physics simulator that can calculate exactly how a spring should move if we know its properties. We give MuJoCo the same starting position and velocity as your real experiment, then let it simulate the motion using our fitted k_spring and c_damping values. If our fitted values are correct, the simulated motion should match your experimental data very closely. The code creates two plots. The top plot shows your experimental data and the MuJoCo simulation overlaid on each other so you can see how well they match. The bottom plot shows the error, which is the difference between experiment and simulation at each time point. We also calculate the RMSE which is the average error across all time points. A small RMSE means our fitted parameters are accurate and MuJoCo can reproduce your experiment. A large RMSE means something is wrong, either our fitting didn't work well or the real spring has more complicated behavior that our simple model doesn't capture.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">mujoco</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Use fitted parameters from Part 2</span>
+<span class="n">MASS</span> <span class="o">=</span> <span class="mf">0.257</span>
+<span class="n">K_SPRING</span> <span class="o">=</span> <span class="n">k_spring</span>
+<span class="n">C_DAMPING</span> <span class="o">=</span> <span class="n">c_damping</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Validating: k=</span><span class="si">{</span><span class="n">K_SPRING</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> N/m, c=</span><span class="si">{</span><span class="n">C_DAMPING</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> N·s/m, m=</span><span class="si">{</span><span class="n">MASS</span><span class="si">}</span><span class="s2"> kg</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Get initial conditions from experimental data</span>
+<span class="n">INITIAL_POS</span> <span class="o">=</span> <span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">INITIAL_VEL</span> <span class="o">=</span> <span class="p">(</span><span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Create MuJoCo model</span>
+<span class="n">xml</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
+<span class="s2">&lt;mujoco&gt;</span>
+<span class="s2">  &lt;option gravity="0 0 0" timestep="0.001"/&gt;</span>
+<span class="s2">  &lt;worldbody&gt;</span>
+<span class="s2">    &lt;body name="mass" pos="0 0 0"&gt;</span>
+<span class="s2">      &lt;joint name="slide" type="slide" axis="1 0 0" </span>
+<span class="s2">             stiffness="</span><span class="si">{</span><span class="n">K_SPRING</span><span class="si">}</span><span class="s2">" damping="</span><span class="si">{</span><span class="n">C_DAMPING</span><span class="si">}</span><span class="s2">"/&gt;</span>
+<span class="s2">      &lt;geom type="box" size="0.05 0.05 0.05" mass="</span><span class="si">{</span><span class="n">MASS</span><span class="si">}</span><span class="s2">"/&gt;</span>
+<span class="s2">    &lt;/body&gt;</span>
+<span class="s2">  &lt;/worldbody&gt;</span>
+<span class="s2">&lt;/mujoco&gt;</span>
+<span class="s2">"""</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">mujoco</span><span class="o">.</span><span class="n">MjModel</span><span class="o">.</span><span class="n">from_xml_string</span><span class="p">(</span><span class="n">xml</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">mujoco</span><span class="o">.</span><span class="n">MjData</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># Set initial conditions</span>
+<span class="n">data</span><span class="o">.</span><span class="n">qpos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">INITIAL_POS</span>
+<span class="n">data</span><span class="o">.</span><span class="n">qvel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">INITIAL_VEL</span>
+
+<span class="c1"># Run simulation</span>
+<span class="n">sim_time</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">sim_pos</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">n_steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mf">0.001</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_steps</span><span class="p">):</span>
+    <span class="n">mujoco</span><span class="o">.</span><span class="n">mj_step</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">sim_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+        <span class="n">sim_pos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">qpos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">sim_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_time</span><span class="p">)</span>
+<span class="n">sim_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_pos</span><span class="p">)</span>
+
+<span class="c1"># Calculate error</span>
+<span class="n">sim_interp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">sim_time</span><span class="p">,</span> <span class="n">sim_pos</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">position</span> <span class="o">-</span> <span class="n">sim_interp</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">error</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">amplitude</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">position</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">position</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">rmse_percent</span> <span class="o">=</span> <span class="p">(</span><span class="n">rmse</span> <span class="o">/</span> <span class="n">amplitude</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="s1">'bo'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Experiment'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim_time</span><span class="p">,</span> <span class="n">sim_pos</span><span class="p">,</span> <span class="s1">'r-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'MuJoCo Simulation'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (s)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Position (m)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'MuJoCo Validation: k=</span><span class="si">{</span><span class="n">K_SPRING</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> N/m, c=</span><span class="si">{</span><span class="n">C_DAMPING</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> N·s/m, m=</span><span class="si">{</span><span class="n">MASS</span><span class="si">}</span><span class="s1"> kg'</span><span class="p">,</span> 
+          <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">textstr</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> m (</span><span class="si">{</span><span class="n">rmse_percent</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">%)</span><span class="se">\n</span><span class="s1">Max Error: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">error</span><span class="p">))</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> m'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="n">textstr</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">'top'</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">'round'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">'wheat'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'mujoco_validation.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"VALIDATION RESULTS"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> m (</span><span class="si">{</span><span class="n">rmse_percent</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">% of amplitude)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Max Error: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">error</span><span class="p">))</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> m"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>Validating: k=38.52 N/m, c=0.4762 N·s/m, m=0.257 kg
+</code></pre>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_5_1.png" data-desc-position="bottom"><img alt="png" src="../output_5_1.png"></a></p>
+<pre><code>============================================================
+VALIDATION RESULTS
+============================================================
+RMSE: 0.002025 m (8.5% of amplitude)
+Max Error: 0.006967 m
+============================================================
+</code></pre>
+<p>Spring Experiment:
+The comparison between the MuJoCo simulation and experimental spring oscillation data shows discrepancies that highlight the limitations of idealized models. The simulation assumes constant spring constant (k) and damping coefficient (c) throughout the motion, along with perfect energy conservation aside from the specified damping. However, in reality, springs exhibit nonlinear behavior where the spring constant varies with displacement, the damping coefficient changes with velocity and temperature, and additional energy dissipation occurs through air resistance, internal friction within the spring material, and energy losses at mounting points. The experimental data shows RMSE of 0.002 m (8.5% error), with the simulation capturing the general oscillatory behavior but missing subtle variations in amplitude decay and frequency. These deviations underscore that real mechanical systems involve complex, time-varying parameters and multiple energy dissipation mechanisms that cannot be fully captured by simple linear models with constant coefficients.</p>
+<h1 id="friction-analysis">Friction Analysis</h1>
+<h3 id="code-1-read-and-plot-friction-data">Code 1: Read and Plot Friction Data</h3>
+<p>This code reads your friction experiment data from the CSV file and plots position versus time. In a friction experiment, you typically slide an object across a surface and measure how it slows down due to friction. The plot shows how the position changes over time. If friction is present, you should see the object gradually slow down, meaning the position curve becomes less steep over time. The code also calculates some basic statistics like the total distance traveled and average velocity. This gives you a sense of how much the object moved and how fast it was going. Unlike the spring data which oscillates back and forth, friction data typically shows motion in one direction that gradually comes to a stop as friction dissipates the kinetic energy.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Read the friction data</span>
+<span class="n">friction_time</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">friction_position</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'friction_output.csv'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># Skip header</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+            <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>
+            <span class="n">friction_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">friction_position</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">friction_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">friction_time</span><span class="p">)</span>
+<span class="n">friction_position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">friction_position</span><span class="p">)</span>
+
+<span class="c1"># Plot the data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">friction_time</span><span class="p">,</span> <span class="n">friction_position</span><span class="p">,</span> <span class="s1">'ro-'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (s)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Position (m)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Friction Experiment - Position vs Time'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'friction_data_plot.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Data points: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">friction_time</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Time range: </span><span class="si">{</span><span class="n">friction_time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">friction_time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Position range: </span><span class="si">{</span><span class="n">friction_position</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">friction_position</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> meters"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total displacement: </span><span class="si">{</span><span class="nb">abs</span><span class="p">(</span><span class="n">friction_position</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">friction_position</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> meters"</span><span class="p">)</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_9_0.png" data-desc-position="bottom"><img alt="png" src="../output_9_0.png"></a></p>
+<pre><code>Data points: 29
+Time range: 0.000 to 1.120 seconds
+Position range: 0.000209 to 0.532000 meters
+Total displacement: 0.531791 meters
+</code></pre>
+<h3 id="code-2-calculate-acceleration-from-friction-data-simplified">Code 2: Calculate Acceleration from Friction Data (Simplified)</h3>
+<p>This code calculates acceleration from your position data and then determines the friction coefficient. On a slanted surface, gravity pulls the object down the slope while friction opposes the motion. The object accelerates down the incline at a rate determined by these two competing forces. We calculate velocity by finding how position changes over time, then calculate acceleration by finding how velocity changes over time. The average acceleration tells us the net effect of gravity and friction combined. Using physics equations for motion on an incline, we can separate out the friction effect. The friction coefficient mu tells you how much friction exists between the object and the surface. A higher mu means more friction. This single number characterizes the sliding friction between your specific materials.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">linregress</span>
+<span class="kn">import</span> <span class="nn">mediapy</span> <span class="k">as</span> <span class="nn">media</span>
+
+<span class="c1"># Step 1: Calculate velocity</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">friction_position</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">friction_time</span><span class="p">)</span>
+<span class="n">time_vel</span> <span class="o">=</span> <span class="n">friction_time</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Step 2: Fit a straight line to velocity data</span>
+<span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="n">linregress</span><span class="p">(</span><span class="n">time_vel</span><span class="p">,</span> <span class="n">velocity</span><span class="p">)</span>
+
+<span class="c1"># The slope of velocity vs time IS the acceleration</span>
+<span class="n">acceleration</span> <span class="o">=</span> <span class="n">slope</span>
+
+<span class="c1"># Create fitted line</span>
+<span class="n">velocity_fit</span> <span class="o">=</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">time_vel</span> <span class="o">+</span> <span class="n">intercept</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"RESULTS"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Acceleration (slope of velocity): </span><span class="si">{</span><span class="n">acceleration</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> m/s²"</span><span class="p">)</span>
+
+<span class="c1"># Calculate friction coefficient</span>
+<span class="n">MASS</span> <span class="o">=</span> <span class="mf">0.008</span>  <span class="c1"># kg</span>
+<span class="n">ANGLE</span> <span class="o">=</span> <span class="mi">21</span>  <span class="c1"># degrees</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>  <span class="c1"># m/s²</span>
+
+<span class="n">angle_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">ANGLE</span><span class="p">)</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="p">(</span><span class="n">g</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">)</span> <span class="o">-</span> <span class="n">acceleration</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">g</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Friction Coefficient (mu): </span><span class="si">{</span><span class="n">mu</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="c1"># Plot velocity with fitted line</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_vel</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span> <span class="s1">'bo'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Velocity Data'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_vel</span><span class="p">,</span> <span class="n">velocity_fit</span><span class="p">,</span> <span class="s1">'r-'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'Linear Fit (slope = </span><span class="si">{</span><span class="n">acceleration</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> m/s²)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (s)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Velocity (m/s)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Velocity vs Time (Linear Fit)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'friction_velocity_fit.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<pre><code>RESULTS
+Acceleration (slope of velocity): 0.8414 m/s²
+
+Friction Coefficient (mu): 0.2920
+</code></pre>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_11_1.png" data-desc-position="bottom"><img alt="png" src="../output_11_1.png"></a></p>
+<h3 id="code-3-mujoco-friction-simulation">Code 3: MuJoCo Friction Simulation</h3>
+<p>This code tests if your calculated friction coefficient is correct by simulating the same experiment in MuJoCo. We create an inclined plane at 20 degrees and place an object with the same mass as your experiment on it. The object slides down under gravity while friction opposes the motion. We use the friction coefficient mu that we calculated from your experimental data. MuJoCo then simulates the physics and calculates how the object should move. We track the position along the incline over time and compare it to your experimental data. If the simulation matches your experiment well with small RMSE, then the friction coefficient we calculated is accurate. If there's a large mismatch, it suggests either the friction coefficient calculation was wrong or the real system has additional effects like air resistance or rolling friction that the simple sliding friction model doesn't capture.</p>
+<div class="highlight"><pre><span></span><code><span class="n">MJCF</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">&lt;mujoco&gt;</span>
+<span class="s2">  &lt;asset&gt;</span>
+<span class="s2">    &lt;texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3"</span>
+<span class="s2">     rgb2=".2 .3 .4" width="300" height="300" mark="none"/&gt;</span>
+<span class="s2">    &lt;material name="grid" texture="grid" texrepeat="6 6"</span>
+<span class="s2">     texuniform="true" reflectance=".2"/&gt;</span>
+<span class="s2">     &lt;material name="wall" rgba='.5 .5 .5 1'/&gt;</span>
+<span class="s2">  &lt;/asset&gt;</span>
+
+<span class="s2">  &lt;default&gt;</span>
+<span class="s2">    &lt;geom type="box" size=".01 .01 .01" mass="</span><span class="si">{mass}</span><span class="s2">"/&gt;</span>
+<span class="s2">    &lt;joint type="free"/&gt;</span>
+<span class="s2">  &lt;/default&gt;</span>
+
+<span class="s2">  &lt;worldbody&gt;</span>
+<span class="s2">    &lt;light name="light" pos="-.2 0 1"/&gt;</span>
+<span class="s2">    &lt;geom name="ground" type="plane" size=".5 .5 10" material="grid"</span>
+<span class="s2">     zaxis="</span><span class="si">{zaxis_x}</span><span class="s2"> 0 </span><span class="si">{zaxis_z}</span><span class="s2">" friction="</span><span class="si">{friction_coeff}</span><span class="s2">"/&gt;</span>
+<span class="s2">    &lt;camera name="y" pos="-.1 -.6 .3" xyaxes="1 0 0 0 1 2"/&gt;</span>
+<span class="s2">    &lt;body pos="0 0 .0"&gt; #front</span>
+<span class="s2">      &lt;joint/&gt;</span>
+<span class="s2">      &lt;geom name="front" friction="</span><span class="si">{friction_coeff}</span><span class="s2">"/&gt; </span>
+<span class="s2">    &lt;/body&gt;</span>
+<span class="s2">  &lt;/worldbody&gt;</span>
+
+<span class="s2">&lt;/mujoco&gt;</span>
+<span class="s2">"""</span>
+<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">angle_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">ANGLE</span><span class="p">)</span>
+
+<span class="n">xml_filled</span> <span class="o">=</span> <span class="n">MJCF</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">zaxis_x</span><span class="o">=-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">),</span> <span class="n">zaxis_z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">),</span> <span class="n">friction_coeff</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">mass</span> <span class="o">=</span> <span class="n">MASS</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">mujoco</span><span class="o">.</span><span class="n">MjModel</span><span class="o">.</span><span class="n">from_xml_string</span><span class="p">(</span><span class="n">xml_filled</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">mujoco</span><span class="o">.</span><span class="n">MjData</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># Simulate and display video.</span>
+<span class="k">with</span> <span class="n">mujoco</span><span class="o">.</span><span class="n">Renderer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span> <span class="k">as</span> <span class="n">renderer</span><span class="p">:</span>
+  <span class="n">mujoco</span><span class="o">.</span><span class="n">mj_resetData</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_frames</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">data</span><span class="o">.</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">i</span><span class="o">/</span><span class="mf">30.0</span><span class="p">:</span>
+      <span class="n">mujoco</span><span class="o">.</span><span class="n">mj_step</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">renderer</span><span class="o">.</span><span class="n">update_scene</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">)</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="n">renderer</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+    <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+
+<span class="n">media</span><span class="o">.</span><span class="n">show_video</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div>
+<table class="show_videos" style="border-spacing:0px;"><tbody><tr><td style="padding:1px;"><video controls width="300" height="300" style="object-fit:cover;" loop autoplay muted>
+      <source src="data:video/mp4;base64,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" type="video/mp4">
+      This browser does not support the video tag.
+      </video></td></tr></tbody></table>
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">mujoco</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="c1"># Load and simulate</span>
+<span class="n">mujoco</span><span class="o">.</span><span class="n">mj_resetData</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+<span class="n">sim_times</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">sim_positions</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">data</span><span class="o">.</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">i</span><span class="o">/</span><span class="mf">30.0</span><span class="p">:</span>
+        <span class="n">mujoco</span><span class="o">.</span><span class="n">mj_step</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">sim_times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+    <span class="n">sim_positions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">qpos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Inverted sign</span>
+
+<span class="n">sim_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_times</span><span class="p">)</span>
+<span class="n">sim_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_positions</span><span class="p">)</span>
+
+<span class="c1"># Read the friction data from CSV</span>
+<span class="n">friction_time</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">friction_position</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'friction_output.csv'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># Skip header</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+            <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>
+            <span class="n">friction_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="n">friction_position</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">friction_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">friction_time</span><span class="p">)</span>
+<span class="n">friction_position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">friction_position</span><span class="p">)</span>
+
+<span class="c1"># Plot comparison</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">friction_time</span><span class="p">,</span> <span class="n">friction_position</span><span class="p">,</span> <span class="s1">'ro-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'CSV Data'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim_times</span><span class="p">,</span> <span class="n">sim_positions</span><span class="p">,</span> <span class="s1">'bs-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'MuJoCo'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (s)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Position (m)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Friction Experiment - Position vs Time Comparison'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Calculate and plot MSE</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+
+<span class="c1"># Interpolate MuJoCo data to match CSV time points</span>
+<span class="n">mujoco_interp</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">sim_times</span><span class="p">,</span> <span class="n">sim_positions</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s1">'extrapolate'</span><span class="p">)</span>
+<span class="n">mujoco_at_csv_times</span> <span class="o">=</span> <span class="n">mujoco_interp</span><span class="p">(</span><span class="n">friction_time</span><span class="p">)</span>
+
+<span class="c1"># Calculate MSE</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">friction_position</span> <span class="o">-</span> <span class="n">mujoco_at_csv_times</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Mean Squared Error (MSE): </span><span class="si">{</span><span class="n">mse</span><span class="si">:</span><span class="s2">.6e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Root Mean Squared Error (RMSE): </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> m"</span><span class="p">)</span>
+
+<span class="c1"># Plot residuals</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">friction_time</span><span class="p">,</span> <span class="n">friction_position</span> <span class="o">-</span> <span class="n">mujoco_at_csv_times</span><span class="p">,</span> <span class="s1">'go-'</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (s)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Residual (m)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Residuals (CSV - MuJoCo) | RMSE = </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> m'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_14_0.png" data-desc-position="bottom"><img alt="png" src="../output_14_0.png"></a></p>
+<pre><code>Mean Squared Error (MSE): 1.471729e-03
+Root Mean Squared Error (RMSE): 0.038363 m
+</code></pre>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../output_14_2.png" data-desc-position="bottom"><img alt="png" src="../output_14_2.png"></a></p>
+<p>Friction Experiment:
+The comparison between the MuJoCo simulation and experimental data reveals that the simulation predicts faster acceleration and greater displacement over time, as evidenced by the consistent negative residuals. This discrepancy is physically reasonable and expected. The MuJoCo simulation models an idealized system with only the specified friction coefficient (μ = 0.2347), while the real-world experiment encounters additional resistive forces such as air resistance, rolling resistance, surface irregularities, and potential energy losses through vibrations. These unmodeled dissipative effects in the physical system result in slower acceleration compared to the simulation. The RMSE of approximately 0.047 m (or 8.5% error) demonstrates that while the simplified MuJoCo model captures the primary dynamics of friction on an inclined plane, real-world uncertainties and additional resistive mechanisms introduce systematic deviations that cause the actual block to lag behind the idealized simulation.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../../../assets/beam1_FINAL.pdf" class="md-footer__link md-footer__link--prev" aria-label="Previous: Material">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Material
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024 Foldable Grasshopper Team
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="/2023_fall" target="_blank" rel="noopener" title="2023 Site" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.follow", "navigation.top", "navigation.path", "navigation.indexes", "navigation.prune", "content.action.edit", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
