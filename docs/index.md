@@ -1,90 +1,50 @@
----
-title: Welcome
-tags:
-- tag1
-- tag2
----
 
-## Et poposcerat rursus ad magnus premit
+# Foldable Grasshopper-Inspired Walking Robot
 
-Lorem markdownum gradus, qui largis, nec pater pleno: fatum. Adspexit cursus
-cur, aut in adhuc crimina **habebat**: pro.
+![Grasshopper Robot](assets/prototype.jpeg){ width="300" }
 
-- Et ducimus
-- Prosecta hinc nix vidi rettulit cum sitim
-- Has in tonitribus tenebrae Romane mirantum resupina
-- Figuras et dextram
+### Team
+- **Vamshi Narayana Babu** – vamshin24@asu.edu
+- **Sameerjheet Singh Chabbra** – schhab18@asu.edu
+- **Shawn Dimang** – shawn.dimang@asu.edu
 
-## Esse quoque sedem plena nunc iecur
+### Introduction
+This project explores the design and simulation of a bio-inspired walking robot based on the grasshopper's morphology. Originally conceived as a jumping mechanism, the design was pivoted to a walking gait to ensure stability and control using a four-bar linkage leg design.
 
-Possemque suos dumque. Deum recta rogantem, inquinat facta gigantas; ego nisi
-mea. Nec tamen quae gravem, potens, [cognoscendo
-scripta](http://vidit-lumine.io/sinusdeum). *Nihil ventis Aeneae* probat.
+The robot is constructed using a foldable cardboard technique with a five-layer lamination process, allowing for rapid prototyping and lightweight structure. We utilized MuJoCo for physics-based modeling and optimization, focusing on maximizing the distance traveled in 5 seconds as our primary performance metric.
 
-1. listum primo
+### Research Question
+How can a grasshopper-inspired four-bar linkage mechanism be optimized for stable walking using a foldable cardboard structure, and how well does the simulated performance in MuJoCo correlate with the physical prototype?
 
-    discusso el codex:
+### Background & Biomechanics
+Grasshoppers utilize a specialized leg structure that allows for powerful extension. We analyzed the kinematic chain of the grasshopper leg to adapt it into a four-bar linkage suitable for a walking gait driven by continuous servo rotation rather than explosive energy release.
 
-        if (pimProgressiveMashup(recursive_upnp_barcraft, seo) == file.station_leaf(
-                optical + 1, compact_docking)) {
-            rt_programming_system(udpScraping, marketRegularMetal,
-                    threadingNuiRoom);
-            vlogVaporwarePage += 5 + xhtmlDiskReader;
-            access.kbps_footer.dialogZettabyte(3, cloud_midi_spoofing, ipad_macro);
-        }
-        if (maskProcessorKbps(programming, user, cache_web) >= file *
-                publishingDual) {
-            hibernate.flash_network -= 4;
-            bar = goodput_flash;
-            streaming = voip_flatbed - 1;
-        } else {
-            clipCd(jquery, 55 - -1, touchscreen);
-            plagiarism_command_e = cleanHardIcio;
-            recursion = checksum;
-        }
-        clock(roomCaptcha, 2);
+### Mechanism & Manufacturing
+- **Leg Design**: A four-bar linkage system mimics the femur-tibia articulation of a grasshopper.
+- **Construction**: Built using a 5-layer lamination process (cardboard, adhesive, and flexible layers) to create robust yet foldable joints.
+- **Actuation**: Driven by standard hobby servos controlling the input crank of the linkage.
+- [5 Layered Manufacturing Workflow for hind legs](notebooks/grass_manu.ipynb)
+- [5 Layered Manufacturing Workflow for main body(Trunk)](notebooks/grass_body.ipynb)
 
-2. listum secundum
+### Modeling & Simulation (MuJoCo)
+We developed a full physics simulation in MuJoCo to test the stability and kinematics of the walking gait before physical assembly.
+- [Model & Simulation Notebook](notebooks/model_and_simulation.ipynb)
 
-    > warningum alertum
+### Parameter Sweep & Optimization
+We performed parameter sweeps on link lengths and gait frequencies to identify the optimal configuration for speed and stability.
+- [Assignment 5: Parameter Identification](notebooks/Assignment5_RAS557/Assignment5_RAS557.md)
+- [Results Analysis Notebook](notebooks/results_analysis.ipynb)
 
-3. listum adnauseum
+### Results & Sim-to-Real
+The optimized design achieved a stable walking gait in simulation with a total distance of **X.XX meters in 5 seconds**. The physical prototype demonstrated similar kinematic behavior, with an approximate **XX% error** in stride length compared to the simulation.
 
-## Pondus ante Ialysios vultu exasperat loqui sanguine
+### Files & Downloads
+- [Final Report (PDF)](RAS557_Final_Project_Report.docx)
+- [CAD / DXFs](assets/cad_files/)
+- [MuJoCo XML & Control Code](assets/mujoco_model/)
+- [Photos & Videos](assets/media/)
 
-Iacere non, quis nimbis. Dumque tibi minora clamabat contigit vacant, sepulcro
-coniugis quae; mihi! Solent adeste faventibus, perque penates, currere in quater
-Odrysius ferro, vota, vero mittat crinibus, quae. Hanc mundi, ipse vultu voce
-sub quae heros forsitan imagine in tecum Cephalus? Formosissimus vela; vapore
-oris, aera, utendum ostendisse regnum Centaurorum elice.
-
-    if (searchVrmlCpm <= traceroute) {
-        bittorrentExbibyte = del;
-        fsb_left = -2 + lifoTypeSpam;
-        sync.bcc(errorAtm(66, boot, link), meta_personal_hdd, leak.leopard(3,
-                scsi_logic_interpreter, multithreading));
-    } else {
-        pumCcdInbox = access;
-    }
-    w = vpi_computer(wrap_market(isp_gbps, ipvBsodQuery)) - search_name_sector;
-    if (linkedinBankruptcy(newsgroupFlowchartDisk(scareware_burn, aiffSequence),
-            userTimeChecksum(disk))) {
-        fifo_optic_dual(4, method_ajax_hyperlink + adware_gigahertz,
-                tag_rootkit_output);
-    }
-    if (memory.fsb(client_template, typeface_memory_bridge) < newbie_socket_gif(
-            storageModemDrive, kilohertz_yottabyte_middleware)) {
-        dimm.dvd_character.hover(hibernate);
-        exif = unmountVirusRss * 5;
-    } else {
-        localhost_adapter += character_olap_white;
-        subnet(internal_dongle + card);
-    }
-    var hibernateAlert = formatCmsCompression(1 / and_tcp + 5);
-
-Miserande evanida amanti, succiduo, dare mihi quid amnis venit Rhadamanthus.
-Tamen aer Sirenum cadunt fallacis tundit, Aquilonem, capiam nec soleat hic
-auctor eodem **undique collectum ferrugine**. Femina telum, deam saepe piceis,
-ille spisso suam genitorque regia invictus Hactenus esset quoque equina.
-Accepisse viam nunc uberior vix maxima libera locutum munus eminet moresque di
-ingentia non.
+### Course Info
+- **Course**: RAS 557 – Foldable Robotics
+- **Semester**: Fall 2025
+- **Instructor**: Prof. Daniel Aukes

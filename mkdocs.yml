@@ -1,7 +1,7 @@
-site_name: EGR314 Report Template
+site_name: Foldable Grasshopper-Inspired Walking Robot
 site_url: https://embedded-systems-design.github.io/template_report
-repo_url: https://github.com/embedded-systems-design/template_report
-edit_uri: edit/main/docs/
+# repo_url: https://github.com/embedded-systems-design/template_report
+# edit_uri: edit/main/docs/
 theme:
   name: material
   custom_dir: custom_theme/
@@ -10,8 +10,12 @@ theme:
     accent: indigo
   font:
     text: Roboto
-  logo: static/logo.svg
-  favicon: static/logo.png
+#   logo: static/logo.svg
+#   favicon: static/logo.png
+
+  nav:
+    - Home: index.md
+    - Midterm Project Report: second-page.md
 
   features:
     - navigation.tabs
@@ -59,7 +63,7 @@ extra_javascript:
 not_in_nav: |
   static
   
-copyright: "Copyright &copy; 2024 team-name-here"
+copyright: "Copyright &copy; 2024 Foldable Grasshopper Team"
 
 extra:
   generator: false
