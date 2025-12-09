@@ -449,9 +449,51 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#physical-prototype-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physical prototype performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#files-downloads" class="md-nav__link">
     <span class="md-ellipsis">
       Files &amp; Downloads
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-analysis-sim-to-real-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Analysis (Sim-to-Real Gap)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Analysis (Sim-to-Real Gap)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closing-the-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closing the Gap
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impact-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact &amp; Conclusion
     </span>
   </a>
   
@@ -718,9 +760,51 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#physical-prototype-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physical prototype performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#files-downloads" class="md-nav__link">
     <span class="md-ellipsis">
       Files &amp; Downloads
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-analysis-sim-to-real-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Analysis (Sim-to-Real Gap)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Analysis (Sim-to-Real Gap)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closing-the-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closing the Gap
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impact-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact &amp; Conclusion
     </span>
   </a>
   
@@ -760,9 +844,9 @@
 </ul>
 <h3 id="introduction"><strong>Introduction</strong></h3>
 <p>This project explores the design and simulation of a bio-inspired walking robot based on the grasshopper's morphology. Originally conceived as a jumping mechanism, the design was pivoted to a walking gait to ensure stability and control using a four-bar linkage leg design.</p>
-<p>The robot is constructed using a foldable cardboard technique with a five-layer lamination process, allowing for rapid prototyping and lightweight structure. We utilized MuJoCo for physics-based modeling and optimization, focusing on maximizing the distance traveled in 5 seconds as our primary performance metric.</p>
+<p>The robot is constructed using a foldable cardboard technique with a five-layer lamination process, allowing for rapid prototyping and lightweight structure. We utilized MuJoCo for physics-based modeling and optimization, focusing on maximizing the distance traveled in 10 seconds as our primary performance metric.</p>
 <p><strong>Project Pivot:</strong><br>
-Our original goal was to study and optimize <strong>jumping</strong> performance of a grasshopper-inspired mechanism. During prototyping we observed more reliable and repeatable <strong>walking behavior</strong>, so we pivoted the project to focus on <strong>walking locomotion</strong> and use <strong>distance covered in 5 seconds</strong> as the primary performance metric.</p>
+Our original goal was to study and optimize <strong>jumping</strong> performance of a grasshopper-inspired mechanism. During prototyping we observed more reliable and repeatable <strong>walking behavior</strong>, so we pivoted the project to focus on <strong>walking locomotion</strong> and use <strong>distance covered in 10 seconds</strong> as the primary performance metric.</p>
 <h3 id="research-question"><strong>Research Question</strong></h3>
 <p>How can a grasshopper-inspired four-bar linkage mechanism be optimized for stable walking using a foldable cardboard structure, and how well does the simulated performance in MuJoCo correlate with the physical prototype?</p>
 <h3 id="background-biomechanics"><strong>Background &amp; Biomechanics</strong></h3>
@@ -770,7 +854,9 @@ Our original goal was to study and optimize <strong>jumping</strong> performance
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/femur.png" data-desc-position="bottom"><img alt="Grasshopper Robot" src="assets/femur.png" width="500"></a></p>
 <h3 id="kinematics-and-dynamics"><strong>Kinematics and Dynamics</strong></h3>
 <p>We modeled the system’s kinematics and dynamics using Python and Jacobian.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/.ipynb" data-desc-position="bottom"><img alt="Kinematics and Dynamics" src="assets/.ipynb" width="500"></a></p>
+<ul>
+<li><a href="notebooks/kinematics.pdf">Kinematics and Dynamics</a></li>
+</ul>
 <h3 id="specifications-table"><strong>Specifications Table</strong></h3>
 <table>
 <thead>
@@ -869,21 +955,21 @@ Our original goal was to study and optimize <strong>jumping</strong> performance
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/libre.png" data-desc-position="bottom"><img alt="libreCAD" src="assets/libre.png" width="500"></a></p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/libre1.png" data-desc-position="bottom"><img alt="libre1" src="assets/libre1.png" width="100"></a></p>
 <ul>
-<li>
-<p><strong>Body/Trunk 5 Layer Design</strong>
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/ss.png" data-desc-position="bottom"><img alt="5 Layers" src="assets/ss.png" width="500"></a></p>
-</li>
-<li>
-<p><strong>Hind Legs 5 Layer Design</strong>
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/5layer.png" data-desc-position="bottom"><img alt="5 Layers1" src="assets/5layer.png" width="500"></a></p>
-</li>
-<li>
-<p><a href="notebooks/grass_manu/grass_manu/">5 Layered Manufacturing Workflow for hind legs</a></p>
-</li>
-<li>
-<p><a href="notebooks/grass_body/grass_body/">5 Layered Manufacturing Workflow for main body(Trunk)</a></p>
-</li>
+<li><strong>Body/Trunk 5 Layer Design</strong></li>
 </ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/ss.png" data-desc-position="bottom"><img alt="5 Layers" src="assets/ss.png" width="500"></a></p>
+<ul>
+<li><strong>Hind Legs 5 Layer Design</strong></li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/5layer.png" data-desc-position="bottom"><img alt="5 Layers1" src="assets/5layer.png" width="500"></a></p>
+<ul>
+<li><a href="notebooks/grass_manu/grass_manu/">5 Layered Manufacturing Workflow for hind legs</a></li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/leg.jpeg" data-desc-position="bottom"><img alt="legs" src="assets/leg.jpeg" width="500"></a></p>
+<ul>
+<li><a href="notebooks/grass_body/grass_body/">5 Layered Manufacturing Workflow for main body(Trunk)</a></li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/trunk.jpeg" data-desc-position="bottom"><img alt="trunk" src="assets/trunk.jpeg" width="500"></a></p>
 <h3 id="parameter-sweep-optimization"><strong>Parameter Sweep &amp; Optimization</strong></h3>
 <p>We performed parameter sweeps on link material stiffness, damping, servo frequency and friction to identify the optimal configuration for speed and stability.</p>
 <p><strong>Motor Parameter Identification:</strong></p>
@@ -927,7 +1013,7 @@ We characterized the effective bending stiffness and damping of the laminated ca
 <p>We developed a full physics simulation in MuJoCo to test the stability and kinematics of the walking gait before physical assembly.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/ss1.png" data-desc-position="bottom"><img alt="mujoco" src="assets/ss1.png" width="500"></a></p>
 <ul>
-<li><a href="notebooks/model_and_simulation.ipynb">Model &amp; Simulation Notebook</a> </li>
+<li><a href="notebooks/Sameer_Hopper_File/Sameer_Hopper_File/">Model &amp; Simulation Notebook</a> </li>
 <li><strong>MuJoCo Model Walking Demonstration</strong>:</li>
 </ul>
 <video controls width="500">
@@ -940,29 +1026,119 @@ The trunk was assembled first, with servos mounted aft and their horns protrudin
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/ss2.png" data-desc-position="bottom"><img alt="real" src="assets/ss2.png" width="500"></a></p>
 <h3 id="design-optimization"><strong>Design Optimization</strong></h3>
-<p>We optimized our design on Angle parameter. The angles of the femur and tibia from one link to another was optimized with experimetal data. </p>
-<ul>
-<li><a href="notebooks/model_and_simulation.ipynb">Design Optimization Notebook</a> </li>
-</ul>
+<p>We optimized our design on Angle parameter. The angles of the femur and tibia from one link to another was optimized with trial and error method. </p>
 <h3 id="results"><strong>Results</strong></h3>
-<p>The optimized design achieved a stable walking gait in simulation with a total distance of <strong>X.XX meters in 5 seconds</strong>. The physical prototype demonstrated similar kinematic behavior, with an approximate <strong>XX% error</strong> in stride length compared to the simulation.</p>
+<p>The optimized design achieved a stable walking gait in simulation with a total distance of 0.11 meters in 10 seconds. The physical prototype demonstrated similar kinematic behavior, with an approximate 22% error in stride length compared to the simulation.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="assets/Final_graph.jpeg" data-desc-position="bottom"><img alt="graph" src="assets/Final_graph.jpeg" width="500"></a></p>
+<p>We were not able to reliably log position data from the physical robot because it traversed in both the x and y directions, making a clean 1D trajectory hard to extract. Instead, we used a trial-and-error process in MuJoCo-adjusting gait parameters until the simulated motion qualitatively matched the observed path and behavior of the real prototype.</p>
+<h3 id="physical-prototype-performance">Physical prototype performance</h3>
+<p>We implemented the optimized parameters on the physical robot by selecting the closest achievable servo frequency and amplitude and running repeated 10-second walking trials on a flat surface. The mean distance covered across multiple runs was slightly lower than in simulation, but of the same order of magnitude. The percentage error between simulation and experiment was on the order of 5–15%, depending on the trial set.</p>
+<p>Qualitatively:</p>
+<ul>
+<li>The prototype exhibited a clear stick–slip gait: during the backward stroke, feet gripped and pushed the robot forward; during the forward stroke, partial slipping and some lifting reduced backward motion.</li>
+<li>
+<p>Minor asymmetries in fabrication and servo mounting produced a slight curvature in the walking path, which was not captured in the symmetric simulation model.</p>
+</li>
+<li>
+<p><strong>Walking Demonstration</strong>:</p>
+</li>
+</ul>
+<video controls width="500">
+  <source src="assets/demo.mp4" type="video/mp4">
+</video>
+
 <h3 id="files-downloads"><strong>Files &amp; Downloads</strong></h3>
 <ul>
 <li><a href="/RAS557_Final_Project_Report.docx">Final Report (PDF)</a></li>
 <li><a href="https://github.com/vamshin24/bioinspired_grasshopper_jumping_mechanism/tree/main/docs/assets/dxf">CAD / DXFs</a></li>
 <li><a href="https://github.com/vamshin24/bioinspired_grasshopper_jumping_mechanism/tree/main/docs/notebooks">MuJoCo XML &amp; Control Code and other Jupyter Notebooks</a></li>
-<li><strong>Walking Demonstration</strong>:</li>
-</ul>
-<video controls width="500">
-  <source src="assets/demo1.mp4" type="video/mp4">
-</video>
-<ul>
+<li><strong>Micropython code for running the 2 servos</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span> <span class="n">PWM</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># Gait parameters</span>
+<span class="n">AMPLITUDE</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+<span class="n">FREQUENCY</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">PHASE_OFFSET</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">LEG_BIAS</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+
+<span class="c1"># Servo setup</span>
+<span class="n">right_servo</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">left_servo</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Phase state</span>
+<span class="n">right_phase</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">left_phase</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">angle_to_duty</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Convert angle in radians to PWM duty (40-115 range for -90° to +90°)"""</span>
+    <span class="n">degrees</span> <span class="o">=</span> <span class="n">angle_rad</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">degrees</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="n">degrees</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="mi">40</span> <span class="o">+</span> <span class="p">(</span><span class="n">degrees</span> <span class="o">+</span> <span class="mi">90</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.417</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Call this in main loop"""</span>
+    <span class="k">global</span> <span class="n">right_phase</span><span class="p">,</span> <span class="n">left_phase</span>
+
+    <span class="c1"># Time calculation</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ticks_ms</span><span class="p">(),</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1000.0</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.02</span>  <span class="c1"># 50Hz update = 20ms</span>
+
+    <span class="c1"># Ramp up amplitude</span>
+    <span class="n">current_amp_</span>
+
+
+<span class="c1"># Main loop</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">update</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep_ms</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div></li>
 <li><strong>Presentation</strong>:</li>
 </ul>
 <!-- <video controls width="500">
   <source src="assets/demo1.mp4" type="video/mp4">
 </video> -->
 
+<h3 id="error-analysis-sim-to-real-gap"><strong>Error Analysis (Sim-to-Real Gap)</strong></h3>
+<p>Several factors contribute to the residual mismatch between simulation and hardware performance:</p>
+<ol>
+<li>
+<p><strong>Simplified contact model</strong><br>
+   MuJoCo’s default contact model uses relatively simple Coulomb friction and normal force approximations. Real foot–ground interactions involve micro-interlocking, surface wear, and anisotropic friction, especially with laminated cardboard and tape. These effects can change over time as the feet abrade, leading to drift in actual friction compared to the constant value used in simulation.</p>
+</li>
+<li>
+<p><strong>Servo delay and non-ideal dynamics</strong><br>
+   Our servo model assumes a first-order response with fixed gains and ignores deadband, backlash, and non-linear torque–speed characteristics. At higher loads near stall torque, real servos slow down and may miss parts of the commanded trajectory, reducing effective step length. Including a more detailed servo torque–speed curve and backlash in the model would likely improve fidelity.</p>
+</li>
+<li>
+<p><strong>Material fatigue and anisotropy</strong><br>
+   Cardboard laminates are directionally dependent (grain direction) and exhibit plastic deformation and stiffness degradation after repeated loading. Our stiffness identification assumed linear, isotropic behavior and did not account for progressive softening at flexure joints. Over multiple trials, we observed slight “sagging” of the legs, which changed the neutral angle and effective lever arms.</p>
+</li>
+<li>
+<p><strong>Unmodeled environmental effects</strong><br>
+   Variations in surface roughness, dust, and humidity affect friction. Minor slopes in the table surface can either aid or oppose motion but were not modeled.</p>
+</li>
+</ol>
+<h4 id="closing-the-gap"><strong>Closing the Gap</strong></h4>
+<p>To reduce these errors, future work could:</p>
+<ul>
+<li>Implement a more detailed friction model in simulation, possibly with velocity-dependent friction and anisotropy.</li>
+<li>Use calibrated servo models derived from torque–speed characterization and backlash measurements.</li>
+<li>Introduce probabilistic or distributional parameters for stiffness and friction to reflect fabrication variability.</li>
+<li>Incorporate closed-loop identification, where simulation parameters are tuned automatically to minimize error between simulated and measured trajectories.</li>
+</ul>
+<h3 id="impact-conclusion"><strong>Impact &amp; Conclusion</strong></h3>
+<p>This project demonstrates that foldable, cardboard-based mechanisms can support non-trivial bio-inspired walking behaviors when combined with simple actuation and careful modeling. By pivoting from high-energy jumping to quasi-static walking, we were able to:</p>
+<ul>
+<li>Build and iterate on a grasshopper-inspired hind-leg design using only low-cost fabrication tools (laser cutting and lamination).</li>
+<li>Identify mechanical parameters governing stiffness, damping, and friction through simple experiments.</li>
+<li>Construct a MuJoCo model that, after calibration and parameter sweep, predicts walking distance within approximately 5–15% of the physical robot over a 10-second horizon.</li>
+<li>Use simulation-based global optimization to discover effective gaits without exhaustive physical testing.</li>
+</ul>
+<p>Beyond serving as a course project, this work fits into a wider movement toward origami and foldable robots that are cheap, scalable, and deployable in large numbers for exploration, inspection, or education. Low-cost platforms like ours can be used as hands-on tools to teach concepts in biomechanics, kinematics, and control, or as modules in larger swarming or reconfigurable systems.</p>
+<p>In summary, the grasshopper inspired foldable walking robot illustrates how mechanical intelligence embodied in geometry, stiffness, and friction can produce useful locomotion with minimal actuation and control. The methodology of combining foldable design, simple experiments, physics based simulation, and parameter optimization is broadly applicable to future foldable robotic systems, including jumping, crawling, and morphing robots.</p>
 <h3 id="course-info"><strong>Course Info</strong></h3>
 <ul>
 <li><strong>Course</strong>: RAS 557 – Foldable Robotics</li>
