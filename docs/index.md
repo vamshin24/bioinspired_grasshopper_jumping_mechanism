@@ -11,10 +11,10 @@
 ### **Introduction**
 This project explores the design and simulation of a bio-inspired walking robot based on the grasshopper's morphology. Originally conceived as a jumping mechanism, the design was pivoted to a walking gait to ensure stability and control using a four-bar linkage leg design.
 
-The robot is constructed using a foldable cardboard technique with a five-layer lamination process, allowing for rapid prototyping and lightweight structure. We utilized MuJoCo for physics-based modeling and optimization, focusing on maximizing the distance traveled in 5 seconds as our primary performance metric.
+The robot is constructed using a foldable cardboard technique with a five-layer lamination process, allowing for rapid prototyping and lightweight structure. We utilized MuJoCo for physics-based modeling and optimization, focusing on maximizing the distance traveled in 10 seconds as our primary performance metric.
 
 **Project Pivot:**  
-Our original goal was to study and optimize **jumping** performance of a grasshopper-inspired mechanism. During prototyping we observed more reliable and repeatable **walking behavior**, so we pivoted the project to focus on **walking locomotion** and use **distance covered in 5 seconds** as the primary performance metric.
+Our original goal was to study and optimize **jumping** performance of a grasshopper-inspired mechanism. During prototyping we observed more reliable and repeatable **walking behavior**, so we pivoted the project to focus on **walking locomotion** and use **distance covered in 10 seconds** as the primary performance metric.
 
 
 ### **Research Question**
@@ -28,7 +28,8 @@ Grasshoppers utilize a specialized leg structure that allows for powerful extens
 ### **Kinematics and Dynamics**
 We modeled the system’s kinematics and dynamics using Python and Jacobian.
 
-![Kinematics and Dynamics](assets/.ipynb){ width="500" }
+- [Kinematics and Dynamics](notebooks/kinematics.pdf)
+
 
 ### **Specifications Table**
 | Parameter                               | Symbol        | Value (example) | Units    | Notes                                           |
@@ -61,14 +62,20 @@ We modeled the system’s kinematics and dynamics using Python and Jacobian.
 ![libre1](assets/libre1.png){ width="100" }
 
 - **Body/Trunk 5 Layer Design**
+
 ![5 Layers](assets/ss.png){ width="500"}
 
 - **Hind Legs 5 Layer Design**
+
 ![5 Layers1](assets/5layer.png){ width="500"}
 
 - [5 Layered Manufacturing Workflow for hind legs](notebooks/grass_manu/grass_manu.md)
 
+![legs](assets/leg.jpeg){ width="500"}
+
 - [5 Layered Manufacturing Workflow for main body(Trunk)](notebooks/grass_body/grass_body.md)
+
+![trunk](assets/trunk.jpeg){ width="500"}
 
 ### **Parameter Sweep & Optimization**
 We performed parameter sweeps on link material stiffness, damping, servo frequency and friction to identify the optimal configuration for speed and stability.
@@ -103,7 +110,7 @@ We developed a full physics simulation in MuJoCo to test the stability and kinem
 
 ![mujoco](assets/ss1.png){ width="500"}
 
-- [Model & Simulation Notebook](notebooks/model_and_simulation.ipynb) 
+- [Model & Simulation Notebook](notebooks/Sameer_Hopper_File/Sameer_Hopper_File.md) 
 - **MuJoCo Model Walking Demonstration**:
 <video controls width="500">
   <source src="assets/download.mp4" type="video/mp4">
@@ -115,27 +122,125 @@ The trunk was assembled first, with servos mounted aft and their horns protrudin
 ![real](assets/ss2.png){ width="500"}
 
 ### **Design Optimization**
-We optimized our design on Angle parameter. The angles of the femur and tibia from one link to another was optimized with experimetal data. 
-
-- [Design Optimization Notebook](notebooks/model_and_simulation.ipynb) 
+We optimized our design on Angle parameter. The angles of the femur and tibia from one link to another was optimized with trial and error method. 
 
 ### **Results**
-The optimized design achieved a stable walking gait in simulation with a total distance of **X.XX meters in 5 seconds**. The physical prototype demonstrated similar kinematic behavior, with an approximate **XX% error** in stride length compared to the simulation.
+The optimized design achieved a stable walking gait in simulation with a total distance of 0.11 meters in 10 seconds. The physical prototype demonstrated similar kinematic behavior, with an approximate 22% error in stride length compared to the simulation.
+
+
+![graph](assets/Final_graph.jpeg){ width="500"}
+
+We were not able to reliably log position data from the physical robot because it traversed in both the x and y directions, making a clean 1D trajectory hard to extract. Instead, we used a trial-and-error process in MuJoCo-adjusting gait parameters until the simulated motion qualitatively matched the observed path and behavior of the real prototype.
+
+### Physical prototype performance
+
+We implemented the optimized parameters on the physical robot by selecting the closest achievable servo frequency and amplitude and running repeated 10-second walking trials on a flat surface. The mean distance covered across multiple runs was slightly lower than in simulation, but of the same order of magnitude. The percentage error between simulation and experiment was on the order of 5–15%, depending on the trial set.
+
+Qualitatively:
+
+- The prototype exhibited a clear stick–slip gait: during the backward stroke, feet gripped and pushed the robot forward; during the forward stroke, partial slipping and some lifting reduced backward motion.
+- Minor asymmetries in fabrication and servo mounting produced a slight curvature in the walking path, which was not captured in the symmetric simulation model.
+
+- **Walking Demonstration**:
+<video controls width="500">
+  <source src="assets/demo.mp4" type="video/mp4">
+</video>
 
 ### **Files & Downloads**
 - [Final Report (PDF)](/RAS557_Final_Project_Report.docx)
 - [CAD / DXFs](https://github.com/vamshin24/bioinspired_grasshopper_jumping_mechanism/tree/main/docs/assets/dxf)
 - [MuJoCo XML & Control Code and other Jupyter Notebooks](https://github.com/vamshin24/bioinspired_grasshopper_jumping_mechanism/tree/main/docs/notebooks)
-- **Walking Demonstration**:
-<video controls width="500">
-  <source src="assets/demo1.mp4" type="video/mp4">
-</video>
+- **Micropython code for running the 2 servos**
+```python
+from machine import Pin, PWM
+import math
+import time
+
+# Gait parameters
+AMPLITUDE = 60 * math.pi / 180
+FREQUENCY = 2.5
+PHASE_OFFSET = 0.25
+LEG_BIAS = 60 * math.pi / 180
+
+# Servo setup
+right_servo = PWM(Pin(12), freq=50)
+left_servo = PWM(Pin(13), freq=50)
+
+# Phase state
+right_phase = 0
+left_phase = -1
+start_time = time.ticks_ms()
+
+def angle_to_duty(angle_rad):
+    """Convert angle in radians to PWM duty (40-115 range for -90° to +90°)"""
+    degrees = angle_rad * 180 / math.pi
+    degrees = max(-90, min(90, degrees))
+    return int(40 + (degrees + 90) * 0.417)
+
+def update():
+    """Call this in main loop"""
+    global right_phase, left_phase
+    
+    # Time calculation
+    t = time.ticks_diff(time.ticks_ms(), start_time) / 1000.0
+    dt = 0.02  # 50Hz update = 20ms
+    
+    # Ramp up amplitude
+    current_amp_
+
+
+# Main loop
+while True:
+    update()
+    time.sleep_ms(20)
+```
 - **Presentation**:
 <!-- <video controls width="500">
   <source src="assets/demo1.mp4" type="video/mp4">
 </video> -->
 
+### **Error Analysis (Sim-to-Real Gap)**
+
+Several factors contribute to the residual mismatch between simulation and hardware performance:
+
+1. **Simplified contact model**  
+   MuJoCo’s default contact model uses relatively simple Coulomb friction and normal force approximations. Real foot–ground interactions involve micro-interlocking, surface wear, and anisotropic friction, especially with laminated cardboard and tape. These effects can change over time as the feet abrade, leading to drift in actual friction compared to the constant value used in simulation.
+
+2. **Servo delay and non-ideal dynamics**  
+   Our servo model assumes a first-order response with fixed gains and ignores deadband, backlash, and non-linear torque–speed characteristics. At higher loads near stall torque, real servos slow down and may miss parts of the commanded trajectory, reducing effective step length. Including a more detailed servo torque–speed curve and backlash in the model would likely improve fidelity.
+
+3. **Material fatigue and anisotropy**  
+   Cardboard laminates are directionally dependent (grain direction) and exhibit plastic deformation and stiffness degradation after repeated loading. Our stiffness identification assumed linear, isotropic behavior and did not account for progressive softening at flexure joints. Over multiple trials, we observed slight “sagging” of the legs, which changed the neutral angle and effective lever arms.
+
+4. **Unmodeled environmental effects**  
+   Variations in surface roughness, dust, and humidity affect friction. Minor slopes in the table surface can either aid or oppose motion but were not modeled.
+
+#### **Closing the Gap**
+
+To reduce these errors, future work could:
+
+- Implement a more detailed friction model in simulation, possibly with velocity-dependent friction and anisotropy.
+- Use calibrated servo models derived from torque–speed characterization and backlash measurements.
+- Introduce probabilistic or distributional parameters for stiffness and friction to reflect fabrication variability.
+- Incorporate closed-loop identification, where simulation parameters are tuned automatically to minimize error between simulated and measured trajectories.
+
+### **Impact & Conclusion**
+
+This project demonstrates that foldable, cardboard-based mechanisms can support non-trivial bio-inspired walking behaviors when combined with simple actuation and careful modeling. By pivoting from high-energy jumping to quasi-static walking, we were able to:
+
+- Build and iterate on a grasshopper-inspired hind-leg design using only low-cost fabrication tools (laser cutting and lamination).
+- Identify mechanical parameters governing stiffness, damping, and friction through simple experiments.
+- Construct a MuJoCo model that, after calibration and parameter sweep, predicts walking distance within approximately 5–15% of the physical robot over a 10-second horizon.
+- Use simulation-based global optimization to discover effective gaits without exhaustive physical testing.
+
+Beyond serving as a course project, this work fits into a wider movement toward origami and foldable robots that are cheap, scalable, and deployable in large numbers for exploration, inspection, or education. Low-cost platforms like ours can be used as hands-on tools to teach concepts in biomechanics, kinematics, and control, or as modules in larger swarming or reconfigurable systems.
+
+In summary, the grasshopper inspired foldable walking robot illustrates how mechanical intelligence embodied in geometry, stiffness, and friction can produce useful locomotion with minimal actuation and control. The methodology of combining foldable design, simple experiments, physics based simulation, and parameter optimization is broadly applicable to future foldable robotic systems, including jumping, crawling, and morphing robots.
+
+
 ### **Course Info**
 - **Course**: RAS 557 – Foldable Robotics
 - **Semester**: Fall 2025
 - **Instructor**: Prof. Daniel Aukes
+
+
