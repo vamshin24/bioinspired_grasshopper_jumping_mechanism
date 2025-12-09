@@ -124,6 +124,8 @@ To define target performance for our foldable, grasshopper-inspired jumping mech
 ## Kinematic Model
 Jacobian Calculations 4 Bar JupyterLab
 
+- [Kinematics and Dynamics](notebooks/kinematics.pdf)
+
 ## 7. Discussion
 
 ### 8.1 Degrees of freedom and motors
