@@ -13,10 +13,6 @@ theme:
 #   logo: static/logo.svg
 #   favicon: static/logo.png
 
-  nav:
-    - Home: index.md
-    - Midterm Project Report: second-page.md
-
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -30,6 +26,17 @@ theme:
 #    - navigation.sections
 #    - navigation.expand
 #    - navigation.instant # doesn't work that well
+
+nav:
+  - Home: index.md
+  - Midterm Project Report: second-page.md
+  - Manufacturing:
+    - Hind Legs: notebooks/grass_manu/grass_manu.md
+    - Trunk: notebooks/grass_body/grass_body.md
+  - Parameters:
+    - Motor: notebooks/Assignment5_RAS557/Assignment5_RAS557.md
+    - Material: assets/beam1_FINAL.pdf
+    - Friction: notebooks/New_assignment-1/New_assignment-1.md
 
 markdown_extensions:
   - attr_list #add attributes using curly brackets to images, see https://squidfunk.github.io/mkdocs-material/reference/images/
