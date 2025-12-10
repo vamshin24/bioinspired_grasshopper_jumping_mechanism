@@ -134,7 +134,7 @@ We were not able to reliably log position data from the physical robot because i
 
 ### Physical prototype performance
 
-We implemented the optimized parameters on the physical robot by selecting the closest achievable servo frequency and amplitude and running repeated 10-second walking trials on a flat surface. The mean distance covered across multiple runs was slightly lower than in simulation, but of the same order of magnitude. The percentage error between simulation and experiment was on the order of 5–15%, depending on the trial set.
+We implemented the optimized parameters on the physical robot by selecting the closest achievable servo frequency and amplitude and running repeated 10-second walking trials on a flat surface. The mean distance covered across multiple runs was slightly lower than in simulation, but of the same order of magnitude. The percentage error between simulation and experiment was on the order of 5–22%, depending on the trial set.
 
 Qualitatively:
 
