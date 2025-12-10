@@ -230,7 +230,7 @@ This project demonstrates that foldable, cardboard-based mechanisms can support 
 
 - Build and iterate on a grasshopper-inspired hind-leg design using only low-cost fabrication tools (laser cutting and lamination).
 - Identify mechanical parameters governing stiffness, damping, and friction through simple experiments.
-- Construct a MuJoCo model that, after calibration and parameter sweep, predicts walking distance within approximately 5–15% of the physical robot over a 10-second horizon.
+- Construct a MuJoCo model that, after calibration and parameter sweep, predicts walking distance within approximately 5–22% of the physical robot over a 10-second horizon.
 - Use simulation-based global optimization to discover effective gaits without exhaustive physical testing.
 
 Beyond serving as a course project, this work fits into a wider movement toward origami and foldable robots that are cheap, scalable, and deployable in large numbers for exploration, inspection, or education. Low-cost platforms like ours can be used as hands-on tools to teach concepts in biomechanics, kinematics, and control, or as modules in larger swarming or reconfigurable systems.
