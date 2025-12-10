@@ -5,7 +5,7 @@
 
 ### **Team**
 - **Vamshi Narayana Babu** – vamshin24@asu.edu
-- **Sameerjheet Singh Chabbra** – schhab18@asu.edu
+- **Sameerjeet Singh Chhabra** – schhab18@asu.edu
 - **Shawn Dimang** – shawn.dimang@asu.edu
 
 ### **Introduction**
